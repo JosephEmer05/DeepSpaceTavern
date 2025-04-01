@@ -94,11 +94,26 @@ public class PlayerInteract : MonoBehaviour
         if (Input.GetMouseButtonDown(1))
         {
             GameObject foodToTable = trayManager.CheckTrayFood(foodTag);
-
-            if (foodToTable != null)
+            
+            if (foodToTable == null)
+            {
+                Transform NPCParent = tableSlot.transform;
+                while (NPCParent != null)
+                {
+                    if (NPCParent.CompareTag("NPC"))
+                    {
+                        NPC_Controller nPC_Controller = NPCParent.GetComponent<NPC_Controller>();
+                        nPC_Controller.StartCoroutine(nPC_Controller.WrongFood());
+                        break;
+                    }
+                    NPCParent = NPCParent.parent;
+                }
+            }
+            else
             {
 
                 foodToTable.transform.SetParent(tableSlot.transform);
+                foodToTable.layer = LayerMask.NameToLayer("Default");
                 foodToTable.transform.localPosition = Vector3.zero;
                 foodToTable.transform.localScale = Vector3.one;
                 foodToTable.transform.localRotation = Quaternion.Euler(0, 0, 0);
@@ -109,7 +124,7 @@ public class PlayerInteract : MonoBehaviour
                     if (NPCParent.CompareTag("NPC"))
                     {
                         NPC_Controller nPC_Controller = NPCParent.GetComponent<NPC_Controller>();
-                        nPC_Controller.FoodServed();
+                        nPC_Controller.FoodServed(tableSlot);
                         break;
                     }
                     NPCParent = NPCParent.parent;

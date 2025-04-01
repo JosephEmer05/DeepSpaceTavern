@@ -10,6 +10,7 @@ TagManager:
   - Meat
   - Stew
   - Burger
+  - Exit
   layers:
   - Default
   - TransparentFX
