@@ -44,6 +44,7 @@ public class NPC_Controller : MonoBehaviour
         waveManager = UnityEngine.Object.FindAnyObjectByType<WaveManager>();
         anim = GetComponent<Animator>();
         waitingTime = waveManager.NPCSeatedWaitTime;
+        exitPoint = GameObject.FindWithTag("Exit");
     }
 
     // Update is called once per frame

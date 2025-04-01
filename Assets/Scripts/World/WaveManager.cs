@@ -3,7 +3,7 @@ using UnityEngine;
 public class WaveManager : MonoBehaviour
 {
     public int waveNumber = 1;
-    public int customerNumber = 10;
+    public int customerNumber = 6;
     public float comboMealChance = 3;
     public float lineWaitTime = 120f;
     public float NPCSeatedWaitTime = 60f;
