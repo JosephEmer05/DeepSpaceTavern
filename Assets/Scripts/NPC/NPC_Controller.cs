@@ -12,6 +12,7 @@ public class NPC_Controller : MonoBehaviour
     private FoodRandomizer foodRandomizer;
     private FoodStatus foodStatus;
     private WaveManager waveManager;
+    private PlayerHealth playerHealth;
 
     //public bool nextToEnter = false;
     public bool isWalkingToChair = false;
@@ -48,6 +49,7 @@ public class NPC_Controller : MonoBehaviour
         chairManager = UnityEngine.Object.FindAnyObjectByType<ChairManager>();
         foodRandomizer = UnityEngine.Object.FindAnyObjectByType<FoodRandomizer>();
         waveManager = UnityEngine.Object.FindAnyObjectByType<WaveManager>();
+        playerHealth = UnityEngine.Object.FindAnyObjectByType<PlayerHealth>();
         anim = GetComponent<Animator>();
         waitingTime = waveManager.NPCSeatedWaitTime;
         exitPoint = GameObject.FindWithTag("Exit");
@@ -76,6 +78,7 @@ public class NPC_Controller : MonoBehaviour
                     GetOffChair();
                     food1Slot.SetActive(false);
                     food2Slot.SetActive(false);
+                    playerHealth.LoseLife();
                     LeaveTavern();
                 }
             }

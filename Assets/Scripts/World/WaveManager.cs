@@ -24,15 +24,23 @@ public class WaveManager : MonoBehaviour
     public TextMeshProUGUI goldEarnedText;
     public TextMeshProUGUI goldOwnedText;
 
-    LineCountDown lineCountDown;
-    bool pauseUpdate = false;
+    public GameObject[] navMeshArray;
+    public GameObject[] brokenArray;
+    public GameObject[] fixedArray;
 
+    LineCountDown lineCountDown;
+    ShopManager shopManager;
+    NPC_Spawner nPC_Spawner;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         customerLeft = customerNumber;
         endOfWaveUI.gameObject.SetActive(false);
         lineCountDown = UnityEngine.Object.FindAnyObjectByType<LineCountDown>();
+        shopManager = UnityEngine.Object.FindAnyObjectByType<ShopManager>();
+        nPC_Spawner = UnityEngine.Object.FindAnyObjectByType<NPC_Spawner>();
+
+
     }
 
     // Update is called once per frame
@@ -91,14 +99,33 @@ public class WaveManager : MonoBehaviour
         waveNumber++;
         goldEarned = 0;
         customerNumber += 4;
+        customerLeft = customerNumber;
         if (waveNumber <= 2)
         {
             comboMealChance = 0;
+            nPC_Spawner.canSpawn = true;
         }
         else
         {
             comboMealChance += 3;
+            shopManager.ShopReveal();
         }
-        customerLeft = customerNumber;
+        if (waveNumber <= 4)
+        {
+            LevelChange();
+        }
+    }
+
+    public void LevelChange()
+    {
+        navMeshArray[waveNumber - 1].SetActive(true);
+        navMeshArray[waveNumber - 2].SetActive(false);
+
+
+        if ((waveNumber-2) >= 0)
+        {
+            brokenArray[waveNumber - 2].SetActive(false);
+            fixedArray[waveNumber - 2].SetActive(true);
+        }       
     }
 }

@@ -7,6 +7,7 @@ public class CameraSwitcher : MonoBehaviour
     public Camera fpsCam;
     public GameObject playerCharacter;
     public Canvas ui;
+    public GameObject Crosshair;
     public AudioSource tavern;
     public AudioSource kitchen;
     public float fadeDuration = 1.5f;
@@ -36,6 +37,7 @@ public class CameraSwitcher : MonoBehaviour
         fpsCam.enabled = false;
         playerCharacter.SetActive(false);
         ui.enabled = true;
+        Crosshair.SetActive(false);
 
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
@@ -53,6 +55,7 @@ public class CameraSwitcher : MonoBehaviour
         fpsCam.enabled = true;
         playerCharacter.SetActive(true);
         ui.enabled = false;
+        Crosshair.SetActive(true);
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
