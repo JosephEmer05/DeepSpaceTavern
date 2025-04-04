@@ -3,15 +3,15 @@ using UnityEngine;
 
 public class LineCountDown : MonoBehaviour
 {
-    public float lineWaitingTime = 120f;
+    //public float lineWaitingTime = 120f;
     public bool startTime = false;
     // Update is called once per frame
     void Update()
     {
-        if (startTime)
-        {
-            lineWaitingTime -= Time.deltaTime;
-        }
+        //if (startTime)
+        //{
+        //    lineWaitingTime -= Time.deltaTime;
+        //}
         
     }
 
@@ -22,7 +22,8 @@ public class LineCountDown : MonoBehaviour
         {
             if (!nPC_Controller.isLeaving)
             {
-                lineWaitingTime += 15f;
+                startTime = true;
+                //lineWaitingTime += 15f;
             }
         }
     }

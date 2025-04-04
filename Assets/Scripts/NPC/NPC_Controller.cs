@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class NPC_Controller : MonoBehaviour
 {
@@ -28,6 +29,10 @@ public class NPC_Controller : MonoBehaviour
     private GameObject npcFood;
     private int foodServedCount = 0;
     public GameObject exitPoint;
+    private NavMeshAgent agent;
+
+    public Material dissolveMat;
+
 
     private Animator anim;
 
@@ -46,6 +51,7 @@ public class NPC_Controller : MonoBehaviour
         anim = GetComponent<Animator>();
         waitingTime = waveManager.NPCSeatedWaitTime;
         exitPoint = GameObject.FindWithTag("Exit");
+        agent = GetComponent<NavMeshAgent>();
     }
 
     // Update is called once per frame
@@ -121,10 +127,12 @@ public class NPC_Controller : MonoBehaviour
         transform.position = Vector3.MoveTowards(transform.position, targetChair.transform.position, moveSpeed * Time.deltaTime);
 
         float distance = Vector3.Distance(transform.position, targetChair.transform.position);
-        if (distance < 0.1f)
+        if (distance < 1.5f)
         {
             Quaternion chairRotation = targetChair.transform.rotation;
             transform.rotation = Quaternion.Slerp(transform.rotation, chairRotation, rotationSpeed * Time.deltaTime);
+            
+            agent.enabled = false;
 
             if (Quaternion.Angle(transform.rotation, chairRotation) < 1f) 
             {
@@ -258,7 +266,6 @@ public class NPC_Controller : MonoBehaviour
             Destroy(foodHolder.gameObject);
             yield return new WaitForSeconds(0.5f);
         }
-
         GetOffChair();
         Debug.Log("All food has been eaten!");
     }
@@ -303,10 +310,14 @@ public class NPC_Controller : MonoBehaviour
             isSeated = false;
             isWalkingToChair = false;
         }
+        //waveManager.UpdateCustomerLeft();
+        //Debug.Log("Stood Up");
     }
 
     public void LeaveTavern()
     {
+        agent.enabled = true;
+
         Vector3 direction = (exitPoint.transform.position - transform.position).normalized;
         if (direction != Vector3.zero)
         {
@@ -315,9 +326,27 @@ public class NPC_Controller : MonoBehaviour
         }
         transform.position = Vector3.MoveTowards(transform.position, exitPoint.transform.position, moveSpeed * Time.deltaTime);
         float distance = Vector3.Distance(transform.position, exitPoint.transform.position);
-        if (distance < 0.1f)
+
+        StartCoroutine(Poof());
+    }
+
+    public IEnumerator Poof()
+    {
+        Renderer[] renderers = GetComponentsInChildren<Renderer>();
+
+        foreach (Renderer rend in renderers)
         {
-            Destroy(gameObject);
+            // Replace all materials with the dissolveMat
+            Material[] newMaterials = new Material[rend.materials.Length];
+
+            for (int i = 0; i < newMaterials.Length; i++)
+            {
+                newMaterials[i] = dissolveMat;
+            }
+
+            rend.materials = newMaterials;
         }
+        yield return new WaitForSeconds(5f);
+        Destroy(gameObject);
     }
 }

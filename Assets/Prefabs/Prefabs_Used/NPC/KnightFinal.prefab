@@ -248,7 +248,7 @@ Transform:
   m_GameObject: {fileID: 597516357019972191}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 1.25}
+  m_LocalPosition: {x: 0, y: 1, z: 1.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -851,6 +851,7 @@ MonoBehaviour:
   food2BSlot: {fileID: 8348758437967038822}
   handSlot: {fileID: 4185694084982356973}
   exitPoint: {fileID: 0}
+  dissolveMat: {fileID: 2100000, guid: be7b5c995d7eb124ba31704701bb344e, type: 2}
   moveSpeed: 2
   rotationSpeed: 5
   eatingTime: 5
@@ -863,7 +864,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2390264941799748098}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e079a2d71541a26489a4632120dfc941, type: 3}
   m_Name: 
@@ -2897,7 +2898,7 @@ Transform:
   m_GameObject: {fileID: 7401080525336248117}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 1.25}
+  m_LocalPosition: {x: 0, y: 1, z: 1.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

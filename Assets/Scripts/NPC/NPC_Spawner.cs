@@ -24,16 +24,18 @@ public class NPC_Spawner : MonoBehaviour
         {
             canSpawn = false;
             Debug.Log("NPC Spawned");
-            SpawnNPC();
+            StartCoroutine(SpawnNPC());
         }
     }
 
-    public void SpawnNPC()
+    private IEnumerator SpawnNPC()
     {
         for (int i = 0; i < waveManager.customerNumber; i++)
         {
             int randomNPC = UnityEngine.Random.Range(0, NPCTypes.Length);
             Instantiate(NPCTypes[randomNPC], spawnPoint.transform.position, Quaternion.identity, this.transform);
+            
+            yield return new WaitForSeconds(UnityEngine.Random.Range(2f, 4f));
         }
     }
 }

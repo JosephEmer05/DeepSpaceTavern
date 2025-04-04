@@ -12,7 +12,8 @@ public class PlayerInteract : MonoBehaviour
 
     public TrayManager trayManager;
     public PlateStacker plateStacker;
-
+    public WaveManager waveManager;
+    public FoodValueManager foodValueManager;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -20,7 +21,8 @@ public class PlayerInteract : MonoBehaviour
         playerCameraTransform = Camera.main.transform;
         trayManager = UnityEngine.Object.FindAnyObjectByType<TrayManager>();
         plateStacker = UnityEngine.Object.FindAnyObjectByType<PlateStacker>();
-
+        waveManager = UnityEngine.Object.FindAnyObjectByType<WaveManager>();
+        foodValueManager = UnityEngine.Object.FindAnyObjectByType<FoodValueManager>();
     }
 
     // Update is called once per frame
@@ -115,12 +117,15 @@ public class PlayerInteract : MonoBehaviour
             }
             else
             {
+                waveManager.GoldEarnedUpdater(foodValueManager.GetFoodValue(foodToTable));
 
                 foodToTable.transform.SetParent(tableSlot.transform);
                 foodToTable.layer = LayerMask.NameToLayer("Default");
                 foodToTable.transform.localPosition = Vector3.zero;
                 foodToTable.transform.localScale = Vector3.one;
                 foodToTable.transform.localRotation = Quaternion.Euler(0, 0, 0);
+
+
 
                 Transform NPCParent = foodToTable.transform;
                 while (NPCParent != null)
