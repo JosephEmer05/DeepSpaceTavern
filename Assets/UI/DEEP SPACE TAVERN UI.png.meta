@@ -1,0 +1,935 @@
+fileFormatVersion: 2
+guid: 43be0dcb4ddf73449b40ae82cf349c5d
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: DEEP SPACE TAVERN UI_0
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 3710
+        width: 1696
+        height: 219
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f7f6ee12f536304482288e4b8a91208
+      internalID: -1840837209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DEEP SPACE TAVERN UI_1
+      rect:
+        serializedVersion: 2
+        x: 2027
+        y: 2475
+        width: 2010
+        height: 1481
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5751e69327ee8e549beb95a83b86138b
+      internalID: -97333195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DEEP SPACE TAVERN UI_2
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 3463
+        width: 1696
+        height: 217
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83075c94940fc8a49a16a2454ac8a9a9
+      internalID: 958392896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DEEP SPACE TAVERN UI_3
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 3214
+        width: 1696
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c59c20d5ff26414aaf982341bdef9f0
+      internalID: 1613806013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DEEP SPACE TAVERN UI_4
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 2966
+        width: 1697
+        height: 219
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47aa6fd8c60ab73429ed3ffc79e60fd5
+      internalID: 954980517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DEEP SPACE TAVERN UI_5
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 2719
+        width: 1697
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53ec6e119e76a474192a872da3bd1c22
+      internalID: -4930833
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DEEP SPACE TAVERN UI_6
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 2473
+        width: 1697
+        height: 215
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5907acbd80ae96247ba832e150f6221f
+      internalID: 1899318991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DEEP SPACE TAVERN UI_7
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 1886
+        width: 1312
+        height: 427
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ebceb85ae3fa304469bac521ba924347
+      internalID: -1516383235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DEEP SPACE TAVERN UI_8
+      rect:
+        serializedVersion: 2
+        x: 1605
+        y: 1888
+        width: 1156
+        height: 425
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24afa64ba0b1028478a93ad5aed3a49c
+      internalID: -1035603263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DEEP SPACE TAVERN UI_9
+      rect:
+        serializedVersion: 2
+        x: 2877
+        y: 1886
+        width: 1154
+        height: 427
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ea8675c77232a8469d4c217cf46e8cb
+      internalID: -725516152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DEEP SPACE TAVERN UI_10
+      rect:
+        serializedVersion: 2
+        x: 221
+        y: 1339
+        width: 362
+        height: 377
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 743d066790525e0408c6d9e5faa416c2
+      internalID: -277223987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DEEP SPACE TAVERN UI_11
+      rect:
+        serializedVersion: 2
+        x: 647
+        y: 1339
+        width: 363
+        height: 377
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 066b2112f7f8fe7439c94ff0d31772c1
+      internalID: -597760451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DEEP SPACE TAVERN UI_12
+      rect:
+        serializedVersion: 2
+        x: 1074
+        y: 1339
+        width: 363
+        height: 377
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38930aa60f1e56d4fbca4ba142cc87b2
+      internalID: -628253984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DEEP SPACE TAVERN UI_13
+      rect:
+        serializedVersion: 2
+        x: 1503
+        y: 1339
+        width: 361
+        height: 377
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c7621c4ed63dba4ca7186703410c0bd
+      internalID: -92238085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DEEP SPACE TAVERN UI_14
+      rect:
+        serializedVersion: 2
+        x: 1928
+        y: 1339
+        width: 362
+        height: 377
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d41455cd8382f5b489f9c125783f26fa
+      internalID: 706528838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DEEP SPACE TAVERN UI_15
+      rect:
+        serializedVersion: 2
+        x: 2357
+        y: 1339
+        width: 361
+        height: 373
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aaacc14781d972e438ca42b7fb1d3089
+      internalID: -1925657598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DEEP SPACE TAVERN UI_16
+      rect:
+        serializedVersion: 2
+        x: 2783
+        y: 1339
+        width: 363
+        height: 373
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea9539d79cbf11745ae865bccb65cbdc
+      internalID: 845971330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DEEP SPACE TAVERN UI_17
+      rect:
+        serializedVersion: 2
+        x: 3210
+        y: 1339
+        width: 363
+        height: 377
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1e40159bca9de942af09bf49d0f3930
+      internalID: -272887599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DEEP SPACE TAVERN UI_18
+      rect:
+        serializedVersion: 2
+        x: 3637
+        y: 1339
+        width: 363
+        height: 377
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 602e36d601cb9d24fa773a5b4a83971b
+      internalID: 4292977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DEEP SPACE TAVERN UI_19
+      rect:
+        serializedVersion: 2
+        x: 219
+        y: 801
+        width: 383
+        height: 379
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 247a685dfc2ebb742a21f36c4ae3d196
+      internalID: -1030439117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DEEP SPACE TAVERN UI_20
+      rect:
+        serializedVersion: 2
+        x: 645
+        y: 801
+        width: 384
+        height: 379
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 119dc30ec590b6246a0b8329b095c9cc
+      internalID: -842761052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DEEP SPACE TAVERN UI_21
+      rect:
+        serializedVersion: 2
+        x: 1072
+        y: 801
+        width: 383
+        height: 379
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1720a72fa058af54d8eb453400d9ac3b
+      internalID: -1922209010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DEEP SPACE TAVERN UI_22
+      rect:
+        serializedVersion: 2
+        x: 1497
+        y: 801
+        width: 383
+        height: 379
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aaf5515be259c1a469bbfa8144c9fc03
+      internalID: 861539654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DEEP SPACE TAVERN UI_23
+      rect:
+        serializedVersion: 2
+        x: 1924
+        y: 801
+        width: 383
+        height: 379
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93b75c3625bf47249aedd35ea1e6d962
+      internalID: 190795616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DEEP SPACE TAVERN UI_24
+      rect:
+        serializedVersion: 2
+        x: 2348
+        y: 801
+        width: 386
+        height: 379
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf120ea36b2676048a557e1ee3f44582
+      internalID: -890102649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DEEP SPACE TAVERN UI_25
+      rect:
+        serializedVersion: 2
+        x: 2775
+        y: 801
+        width: 383
+        height: 379
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d2787cbe37a9444f814f63198ee111e
+      internalID: -646458949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DEEP SPACE TAVERN UI_26
+      rect:
+        serializedVersion: 2
+        x: 3202
+        y: 801
+        width: 383
+        height: 379
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ff15bc1551171140ae857af7a8ee8cd
+      internalID: -875605129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DEEP SPACE TAVERN UI_27
+      rect:
+        serializedVersion: 2
+        x: 3627
+        y: 801
+        width: 383
+        height: 379
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 310fc2b6cfcf76141a0c5ffe14f79746
+      internalID: -1945258985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DEEP SPACE TAVERN UI_28
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 271
+        width: 439
+        height: 424
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5514e03fc940d334a85655bd9d4776f5
+      internalID: 601739998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DEEP SPACE TAVERN UI_29
+      rect:
+        serializedVersion: 2
+        x: 747
+        y: 271
+        width: 439
+        height: 424
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd36efdfc084f624fac0a5aab417bb67
+      internalID: 556409907
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DEEP SPACE TAVERN UI_30
+      rect:
+        serializedVersion: 2
+        x: 1215
+        y: 254
+        width: 330
+        height: 393
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 980e11ee9c8c78d4d86ba2617f75f572
+      internalID: -138784390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DEEP SPACE TAVERN UI_31
+      rect:
+        serializedVersion: 2
+        x: 1590
+        y: 254
+        width: 346
+        height: 393
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8024884714f5734c88488fb21939a1a
+      internalID: 2137160752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DEEP SPACE TAVERN UI_32
+      rect:
+        serializedVersion: 2
+        x: 1984
+        y: 279
+        width: 333
+        height: 346
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 552f8448355189545bb9954264e34c6e
+      internalID: -240720731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DEEP SPACE TAVERN UI_33
+      rect:
+        serializedVersion: 2
+        x: 2350
+        y: 293
+        width: 334
+        height: 356
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab2cd088c28c4fd4ca382f6b04ca2091
+      internalID: -300093406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DEEP SPACE TAVERN UI_34
+      rect:
+        serializedVersion: 2
+        x: 2746
+        y: 275
+        width: 1229
+        height: 362
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6fafa53aa5aa2446ab4771a3e355584
+      internalID: 1626285592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: f6bda94806d5e98499d2cc20bae10f0b
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      DEEP SPACE TAVERN UI_0: -1840837209
+      DEEP SPACE TAVERN UI_1: -97333195
+      DEEP SPACE TAVERN UI_10: -277223987
+      DEEP SPACE TAVERN UI_11: -597760451
+      DEEP SPACE TAVERN UI_12: -628253984
+      DEEP SPACE TAVERN UI_13: -92238085
+      DEEP SPACE TAVERN UI_14: 706528838
+      DEEP SPACE TAVERN UI_15: -1925657598
+      DEEP SPACE TAVERN UI_16: 845971330
+      DEEP SPACE TAVERN UI_17: -272887599
+      DEEP SPACE TAVERN UI_18: 4292977
+      DEEP SPACE TAVERN UI_19: -1030439117
+      DEEP SPACE TAVERN UI_2: 958392896
+      DEEP SPACE TAVERN UI_20: -842761052
+      DEEP SPACE TAVERN UI_21: -1922209010
+      DEEP SPACE TAVERN UI_22: 861539654
+      DEEP SPACE TAVERN UI_23: 190795616
+      DEEP SPACE TAVERN UI_24: -890102649
+      DEEP SPACE TAVERN UI_25: -646458949
+      DEEP SPACE TAVERN UI_26: -875605129
+      DEEP SPACE TAVERN UI_27: -1945258985
+      DEEP SPACE TAVERN UI_28: 601739998
+      DEEP SPACE TAVERN UI_29: 556409907
+      DEEP SPACE TAVERN UI_3: 1613806013
+      DEEP SPACE TAVERN UI_30: -138784390
+      DEEP SPACE TAVERN UI_31: 2137160752
+      DEEP SPACE TAVERN UI_32: -240720731
+      DEEP SPACE TAVERN UI_33: -300093406
+      DEEP SPACE TAVERN UI_34: 1626285592
+      DEEP SPACE TAVERN UI_4: 954980517
+      DEEP SPACE TAVERN UI_5: -4930833
+      DEEP SPACE TAVERN UI_6: 1899318991
+      DEEP SPACE TAVERN UI_7: -1516383235
+      DEEP SPACE TAVERN UI_8: -1035603263
+      DEEP SPACE TAVERN UI_9: -725516152
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
