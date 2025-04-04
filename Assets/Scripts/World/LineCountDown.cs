@@ -1,13 +1,18 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class LineCountDown : MonoBehaviour
 {
     public float lineWaitingTime = 120f;
-
+    public bool startTime = false;
     // Update is called once per frame
     void Update()
     {
-        lineWaitingTime -= Time.deltaTime;
+        if (startTime)
+        {
+            lineWaitingTime -= Time.deltaTime;
+        }
+        
     }
 
     private void OnTriggerEnter(Collider other)

@@ -11,12 +11,16 @@ public class PlayerInteract : MonoBehaviour
     public float hitRange = 10;
 
     public TrayManager trayManager;
+    public PlateStacker plateStacker;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         highlightableLayerMask = LayerMask.GetMask("Highlightable");
         playerCameraTransform = Camera.main.transform;
         trayManager = UnityEngine.Object.FindAnyObjectByType<TrayManager>();
+        plateStacker = UnityEngine.Object.FindAnyObjectByType<PlateStacker>();
+
     }
 
     // Update is called once per frame
@@ -57,7 +61,6 @@ public class PlayerInteract : MonoBehaviour
                 {
                     string foodTag = food.gameObject.tag;
                     GameObject tableSlot = food.gameObject.transform.parent?.gameObject;
-                    Debug.Log(foodTag);
                     ServeFood(foodTag, tableSlot);
                 }
                 
@@ -81,6 +84,7 @@ public class PlayerInteract : MonoBehaviour
             if (traySlot != null)
             {
                 food.transform.SetParent(traySlot.transform);
+                plateStacker.RemoveDish(food.gameObject);
                 food.transform.localPosition = Vector3.zero;
                 food.transform.localScale = Vector3.one;
                 food.transform.localRotation = Quaternion.Euler(0, food.transform.localRotation.eulerAngles.y, 0);

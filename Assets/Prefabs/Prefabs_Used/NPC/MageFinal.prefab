@@ -2462,6 +2462,8 @@ GameObject:
   - component: {fileID: 4352227676938365292}
   - component: {fileID: 3535467130953620421}
   - component: {fileID: 4189696855773910710}
+  - component: {fileID: 7537047125596201566}
+  - component: {fileID: 6581665060793938867}
   m_Layer: 6
   m_Name: MageFinal
   m_TagString: NPC
@@ -2610,6 +2612,41 @@ MonoBehaviour:
   eatingTime: 5
   waitingTime: 0
   angryTimeLeft: 15
+--- !u!114 &7537047125596201566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6883282307360019796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e079a2d71541a26489a4632120dfc941, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetLinePoint: {fileID: 0}
+--- !u!195 &6581665060793938867
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6883282307360019796}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &6909624788938820642
 GameObject:
   m_ObjectHideFlags: 0

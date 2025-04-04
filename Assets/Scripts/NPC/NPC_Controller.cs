@@ -12,12 +12,13 @@ public class NPC_Controller : MonoBehaviour
     private FoodStatus foodStatus;
     private WaveManager waveManager;
 
+    //public bool nextToEnter = false;
     public bool isWalkingToChair = false;
     public bool isSeated = false;
     public bool orderTaken = false;
     public bool foodServed = false;
     public bool isLeaving = false;
-    
+
     private GameObject targetChair;
     public GameObject food1Slot;
     public GameObject food2Slot;
@@ -104,6 +105,7 @@ public class NPC_Controller : MonoBehaviour
             isWalkingToChair = true;
             anim.SetTrigger("StartWalking");
         }
+
     }
 
     public void WalkToChair()
@@ -218,14 +220,11 @@ public class NPC_Controller : MonoBehaviour
 
         while (foodParent.childCount > 0)
         {
-            Debug.Log(foodParent.childCount);
             Transform foodHolder = foodParent.GetChild(0);
             Transform actualFood = (foodHolder.childCount > 0) ? foodHolder.GetChild(0) : foodHolder;
             Vector3 originalScale = foodHolder.localScale;
             float elapsedTime = 0f;
             bool isDrink = actualFood.CompareTag("Beer");
-            Debug.Log("Tag of the food: " + actualFood.tag);
-            Debug.Log("Result of isDrink: " + isDrink);
 
             if (isDrink)
             {

@@ -1,40 +1,40 @@
 using UnityEngine;
+using System.Collections;
+using System;
 
 public class NPC_Spawner : MonoBehaviour
 {
-    WaveManager waveManager;
+    private WaveManager waveManager;
     public GameObject[] NPCTypes;
     public GameObject spawnPoint;
-    public bool spawn = false;
+    public bool canSpawn = true;
 
 
-    void Awake()
+
+    private void Awake()
     {
         waveManager = UnityEngine.Object.FindAnyObjectByType<WaveManager>();
-        spawn = true;
+
+        canSpawn = true;
     }
+
     void Update()
     {
-        if (spawn)
+        if (canSpawn)
         {
-            spawn = false;
+            canSpawn = false;
             Debug.Log("NPC Spawned");
-            SpawnNPCs();   
+            SpawnNPC();
         }
     }
 
-    public void SpawnNPCs()
+    public void SpawnNPC()
     {
-        if (spawnPoint == null || NPCTypes.Length == 0 || waveManager == null)
-        {
-            Debug.LogError("Missing references! Check spawnPoint, NPCTypes, or waveManager.");
-            return;
-        }
-
         for (int i = 0; i < waveManager.customerNumber; i++)
         {
-            int randomNPC = Random.Range(0, NPCTypes.Length);
+            int randomNPC = UnityEngine.Random.Range(0, NPCTypes.Length);
             Instantiate(NPCTypes[randomNPC], spawnPoint.transform.position, Quaternion.identity, this.transform);
         }
     }
 }
+ 

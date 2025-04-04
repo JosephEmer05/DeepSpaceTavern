@@ -705,6 +705,8 @@ GameObject:
   - component: {fileID: 8206033480448646552}
   - component: {fileID: 8868612098427761638}
   - component: {fileID: 5613257857699806769}
+  - component: {fileID: 7330240062381191053}
+  - component: {fileID: 1617156056023107917}
   m_Layer: 6
   m_Name: KnightFinal
   m_TagString: NPC
@@ -854,6 +856,41 @@ MonoBehaviour:
   eatingTime: 5
   waitingTime: 0
   angryTimeLeft: 15
+--- !u!114 &7330240062381191053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2390264941799748098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e079a2d71541a26489a4632120dfc941, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetLinePoint: {fileID: 0}
+--- !u!195 &1617156056023107917
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2390264941799748098}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &2399946524185946996
 GameObject:
   m_ObjectHideFlags: 0
