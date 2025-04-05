@@ -60,8 +60,8 @@ public class WaveManager : MonoBehaviour
             WaveDone();
         }
 
-        GameData.score = score; // Save score
-        GameData.finalWave = waveNumber; // Save wave number
+        GameData.finalscore = score; // Save score
+        GameData.finalWave = waveNumber-1; // Save wave number
 
     }
 
