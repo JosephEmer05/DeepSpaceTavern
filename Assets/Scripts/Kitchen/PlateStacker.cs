@@ -23,7 +23,7 @@ public class PlateStacker : MonoBehaviour
     public GameObject stewPrefab;
     public GameObject beerPrefab;
 
-    public Transform[] spawnPoints;
+    public GameObject[] spawnPoints;
     public List<GameObject> spawnedDishes = new List<GameObject>();
 
     public Image resultImage; 
@@ -37,6 +37,21 @@ public class PlateStacker : MonoBehaviour
 
     public Transform[] ingredientPositions;
 
+    public int numSlots = 4;
+    public GameObject counterShop;
+    private ShopItem shopManager;
+    private void Start()
+    {
+        shopManager = counterShop.GetComponent<ShopItem>();
+    }
+    private void Update()
+    {
+        numSlots = shopManager.currentStock + 4;
+        for (int i = 0; i < numSlots; i++)
+        {
+            spawnPoints[i].SetActive(true);
+        }
+    }
 
     void OnTriggerEnter(Collider other)
     {
@@ -283,14 +298,19 @@ public class PlateStacker : MonoBehaviour
         if (dishPrefab != null)
         {
             int availableSlot = GetNextAvailableSlot();
-            GameObject newDish = Instantiate(dishPrefab, spawnPoints[availableSlot].position, Quaternion.identity);
-            spawnedDishes.Insert(availableSlot, newDish);
+
+            if(spawnPoints[availableSlot].activeSelf == true)
+            {
+                GameObject newDish = Instantiate(dishPrefab, spawnPoints[availableSlot].transform.position, Quaternion.identity);
+                spawnedDishes.Insert(availableSlot, newDish);
+            }
         }
     }
 
     int GetNextAvailableSlot()
     {
-        for (int i = 0; i < spawnPoints.Length; i++)
+        int activeSlot = GameObject.FindGameObjectsWithTag("Counter Slot").Length;
+        for (int i = 0; i < activeSlot; i++)
         {
             if (i >= spawnedDishes.Count || spawnedDishes[i] == null)
             {
@@ -311,13 +331,17 @@ public class PlateStacker : MonoBehaviour
         }
     }
 
-    void ShiftDishesForward()
+    public void ShiftDishesForward()
     {
         for (int i = 0; i < spawnedDishes.Count; i++)
         {
             if (spawnedDishes[i] != null)
             {
-                spawnedDishes[i].transform.position = spawnPoints[i].position;
+                if (spawnPoints[i].activeSelf == true)
+                {
+                    spawnedDishes[i].transform.position = spawnPoints[i].transform.position;
+                }
+                
             }
         }
     }

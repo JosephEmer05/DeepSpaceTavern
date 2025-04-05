@@ -14,7 +14,7 @@ public class WaveManager : MonoBehaviour
     public float comboMealChance = 3;
 
     private int score = 0;
-    private int goldOwned = 0;
+    public int goldOwned = 1000;
     private int goldEarned = 0;
 
     public PlayerLook playerLook;
@@ -22,7 +22,8 @@ public class WaveManager : MonoBehaviour
     public GameObject endOfWaveUI;
     public TextMeshProUGUI waveNumText;
     public TextMeshProUGUI goldEarnedText;
-    public TextMeshProUGUI goldOwnedText;
+    public TextMeshProUGUI goldOwnedTextWaveDone;
+    public TextMeshProUGUI goldOwnedTextUI;
 
     public GameObject[] navMeshArray;
     public GameObject[] brokenArray;
@@ -40,6 +41,8 @@ public class WaveManager : MonoBehaviour
         shopManager = UnityEngine.Object.FindAnyObjectByType<ShopManager>();
         nPC_Spawner = UnityEngine.Object.FindAnyObjectByType<NPC_Spawner>();
 
+        goldOwned = 0;
+        goldOwnedTextUI.text = goldOwned + "g";
 
     }
 
@@ -56,6 +59,10 @@ public class WaveManager : MonoBehaviour
             lineCountDown.startTime = false;
             WaveDone();
         }
+
+        GameData.score = score; // Save score
+        GameData.finalWave = waveNumber; // Save wave number
+
     }
 
     public void UpdateCustomerLeft()
@@ -70,8 +77,8 @@ public class WaveManager : MonoBehaviour
         playerLook.enabled = false;
         endOfWaveUI.gameObject.SetActive(true);
         waveNumText.text = "WAVE" + waveNumber;
-        goldEarnedText.text = goldEarned.ToString();
-        goldOwnedText.text = goldOwned.ToString();
+        goldEarnedText.text = goldEarned + "g";
+        goldOwnedTextWaveDone.text = goldOwned + "g";
     }
 
     public void CloseWaveUI()
@@ -89,9 +96,20 @@ public class WaveManager : MonoBehaviour
         score += goldEarned; 
     }
 
-    public void GoldEarnedUpdater(int foodValue)
+    public void GoldOwnedUpdater(int value)
+    {
+        goldOwned += value;
+        if (goldOwned <= 0)
+        {
+            goldOwned = 0;
+        }
+        goldOwnedTextUI.text = goldOwned + "g";
+    }
+
+    public int GoldEarnedUpdater(int foodValue)
     {
         goldEarned += foodValue;
+        return goldEarned;
     }
 
     public void WaveReset()

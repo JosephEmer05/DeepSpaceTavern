@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-public class ShopItem : MonoBehaviour
+public class LifeShop : MonoBehaviour
 {
     public int maxStock;
     public int currentStock = 0;
@@ -12,6 +12,9 @@ public class ShopItem : MonoBehaviour
     public GameObject info;
     public GameObject soldOut;
 
+    PlayerHealth playerHealth;
+    public GameObject player;
+
     public WaveManager waveManagerScript;
     public GameObject waveManagerObject;
 
@@ -19,7 +22,9 @@ public class ShopItem : MonoBehaviour
     void Start()
     {
         soldOut.SetActive(false);
+        playerHealth = player.GetComponent<PlayerHealth>();
         waveManagerScript = waveManagerObject.GetComponent<WaveManager>();
+
     }
 
     public void CheckGoldOwned()
@@ -35,8 +40,8 @@ public class ShopItem : MonoBehaviour
         if (IsSoldOut) return;
 
         currentStock++;
+        playerHealth.GainLife();
         waveManagerScript.GoldOwnedUpdater(-itemCost);
-
         IncrementItemCost();
 
         if (IsSoldOut)
@@ -45,16 +50,16 @@ public class ShopItem : MonoBehaviour
         }
     }
 
-    private void DisableItem()
-    {
-        info.SetActive(false);
-        soldOut.SetActive(true);
-    }
-
     public void IncrementItemCost()
     {
         itemCost += incrementCost;
         itemCostText.text = itemCost + "g";
 
+    }
+
+    private void DisableItem()
+    {
+        info.SetActive(false);
+        soldOut.SetActive(true);
     }
 }

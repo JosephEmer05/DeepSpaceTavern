@@ -17,6 +17,7 @@ TagManager:
   - Grill
   - Pot
   - Level2
+  - Counter Slot
   layers:
   - Default
   - TransparentFX

@@ -47,7 +47,33 @@ public class PlayerInteract : MonoBehaviour
 
                 if (Input.GetKeyDown(KeyCode.E))
                 {
-                    shopItem.BuyItem();
+                    shopItem.CheckGoldOwned();
+                }
+
+                return;
+            }
+
+            LifeShop lifeShop = hit.collider.GetComponent<LifeShop>();
+            if (lifeShop != null && !lifeShop.IsSoldOut)
+            {
+                hit.collider.GetComponent<Highlight>()?.ToggleHighlight(true);
+
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    lifeShop.CheckGoldOwned();
+                }
+
+                return;
+            }
+
+            Trash3D trash3d = hit.collider.GetComponent<Trash3D>();
+            if (trash3d != null)
+            {
+                hit.collider.GetComponent<Highlight>()?.ToggleHighlight(true);
+
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    trash3d.Clear();
                 }
 
                 return;
@@ -134,6 +160,7 @@ public class PlayerInteract : MonoBehaviour
             else
             {
                 waveManager.GoldEarnedUpdater(foodValueManager.GetFoodValue(foodToTable));
+                waveManager.GoldOwnedUpdater(foodValueManager.GetFoodValue(foodToTable));
 
                 foodToTable.transform.SetParent(tableSlot.transform);
                 foodToTable.layer = LayerMask.NameToLayer("Default");
