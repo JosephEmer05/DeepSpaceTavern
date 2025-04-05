@@ -322,7 +322,7 @@ public class PlateStacker : MonoBehaviour
         }
     }
 
-    void ClearPlate()
+    public void ClearPlate()
     {
         foreach (Transform ingredient in stackedIngredients)
         {

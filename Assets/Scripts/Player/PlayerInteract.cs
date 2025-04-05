@@ -40,35 +40,51 @@ public class PlayerInteract : MonoBehaviour
 
         if (Physics.Raycast(playerCameraTransform.position, playerCameraTransform.forward, out hit, hitRange, highlightableLayerMask))
         {
+            ShopItem shopItem = hit.collider.GetComponent<ShopItem>();
+            if (shopItem != null && !shopItem.IsSoldOut)
+            {
+                hit.collider.GetComponent<Highlight>()?.ToggleHighlight(true);
+
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    shopItem.BuyItem();
+                }
+
+                return;
+            }
+
             NPC_Controller npc = hit.collider.GetComponent<NPC_Controller>();
             if (npc != null && npc.isSeated && !npc.orderTaken)
             {
                 hit.collider.GetComponent<Highlight>()?.ToggleHighlight(true);
                 TakeOrder(npc);
+                return;
             }
 
             FoodStatus food = hit.collider.GetComponent<FoodStatus>();
             if (food != null)
             {
-                //for normal food
                 hit.collider.GetComponent<Highlight>()?.ToggleHighlight(true);
-                
+
                 if (!food.onTray && !food.transparentFood)
                 {
                     GrabFood(food);
                 }
 
-                //for transparent food
                 if (food.transparentFood)
                 {
                     string foodTag = food.gameObject.tag;
                     GameObject tableSlot = food.gameObject.transform.parent?.gameObject;
                     ServeFood(foodTag, tableSlot);
                 }
-                
+
+                return;
             }
+
+            hit.collider.GetComponent<Highlight>()?.ToggleHighlight(true);
         }
     }
+
 
     public void TakeOrder(NPC_Controller npc)
     {
