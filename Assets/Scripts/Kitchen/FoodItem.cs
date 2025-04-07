@@ -21,11 +21,25 @@ public class FoodItem : MonoBehaviour
 
     public bool isCooked = false;
 
+    public ShopItem shopManager;
+    public bool grillBoost = false;
+
+    public AudioPlayer player;
+
     void Start()
     {
+        shopManager = GameObject.FindWithTag("PrepTimeItem").GetComponent<ShopItem>();
         originalScale = transform.localScale;
         spriteRenderer = GetComponent<SpriteRenderer>();
         spriteRenderer.sprite = rawSprite;
+        player = GetComponent<AudioPlayer>();
+    }
+    void Update()
+    {
+        if (!grillBoost && shopManager.currentStock == 1)
+        {
+            GrillBoost();
+        }
     }
 
     void OnTriggerEnter(Collider other)
@@ -34,7 +48,8 @@ public class FoodItem : MonoBehaviour
             (foodType == FoodType.Mug && other.CompareTag("Keg")))
         {
             onCookingSurface = true;
-            if (!isCooking && !isCooked) 
+            if (!isCooking && !isCooked)
+                player.PlayOneShotClip();
                 StartCoroutine(CookFood());
         }
     }
@@ -74,6 +89,13 @@ public class FoodItem : MonoBehaviour
             spriteRenderer.sprite = cookedSprite;
             isCooked = true;
         }
+        
         isCooking = false;
+    }
+
+    public void GrillBoost()
+    {
+        cookTime -= 2;
+        grillBoost = true;
     }
 }

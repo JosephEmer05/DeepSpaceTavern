@@ -33,7 +33,7 @@ public class ShopItem : MonoBehaviour
     public void BuyItem()
     {
         if (IsSoldOut) return;
-
+ 
         currentStock++;
         waveManagerScript.GoldOwnedUpdater(-itemCost);
 

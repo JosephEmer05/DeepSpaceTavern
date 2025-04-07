@@ -10,23 +10,31 @@ public class PlayerMovement : MonoBehaviour
     public float JumpStrength;
     public float WalkSpeed;
     public float RunSpeed;
+    public GameObject moveSpeedShopItem;
 
+    private ShopItem shopManager;
     private CharacterController Controller;
     private Vector3 CurrentMoveVelocity;
     private Vector3 MoveDampVelocity;
 
     private Vector3 CurrentForceVelocity;
 
-
+    bool speedBoosted = false;
+    
     // Start is called before the first frame update
     void Start()
     {
+        shopManager = moveSpeedShopItem.GetComponent<ShopItem>();
         Controller = GetComponent<CharacterController>();
+        WalkSpeed = 5;
     }
 
     // Update is called once per frame
     void Update()
     {
+        
+        RunSpeed = WalkSpeed * 2;
+
         Vector3 PlayerInput = new Vector3
         {
             x = Input.GetAxisRaw("Horizontal"),
@@ -68,5 +76,18 @@ public class PlayerMovement : MonoBehaviour
         }
 
         Controller.Move(CurrentForceVelocity * Time.deltaTime);
+
+        if (!speedBoosted && shopManager.currentStock == 1)
+        {
+            IncreaseMoveSpeed();
+        }
+
+
+    }
+
+    public void IncreaseMoveSpeed()
+    {
+        WalkSpeed += 3;
+        speedBoosted = true;
     }
 }

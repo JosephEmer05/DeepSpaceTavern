@@ -43,9 +43,15 @@ public class NPC_Controller : MonoBehaviour
     public float waitingTime;
     public float angryTimeLeft = 15f;
 
+    public ShopItem shopManager;
+    public bool NPCPatienceAdded = false;
+
+    public int bandCount = 0;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        shopManager = GameObject.FindWithTag("NPCPatience").GetComponent<ShopItem>();
         chairManager = UnityEngine.Object.FindAnyObjectByType<ChairManager>();
         foodRandomizer = UnityEngine.Object.FindAnyObjectByType<FoodRandomizer>();
         waveManager = UnityEngine.Object.FindAnyObjectByType<WaveManager>();
@@ -59,6 +65,11 @@ public class NPC_Controller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!NPCPatienceAdded && shopManager.currentStock == 1)
+        {
+            NPCPatienceBoost();
+        }
+
         if (isSeated)
         {
             waitingTime -= Time.deltaTime;
@@ -74,11 +85,11 @@ public class NPC_Controller : MonoBehaviour
                 anim.SetBool("Tantrum", true);
                 if (waitingTime <= 0)
                 {
+                    playerHealth.LoseLife();
                     anim.SetBool("Tantrum", false);
                     GetOffChair();
                     food1Slot.SetActive(false);
                     food2Slot.SetActive(false);
-                    playerHealth.LoseLife();
                     LeaveTavern();
                 }
             }
@@ -155,7 +166,7 @@ public class NPC_Controller : MonoBehaviour
 
     public void OrderFood()
     {
-        if (waveManager.waveNumber <= 2)
+        if (WaveManager.waveNumber <= 2)
         {
             SpawnAndSetupFood(food1Slot.transform);
         }
@@ -352,4 +363,23 @@ public class NPC_Controller : MonoBehaviour
         yield return new WaitForSeconds(5f);
         Destroy(gameObject);
     }
+
+    public void NPCPatienceBoost()
+    {
+        waitingTime += 10f;
+        NPCPatienceAdded = true;
+    }
+
+    public void NPCBandBoost(int num)
+    {
+        for(int i = 0; i<num; i++)
+        {
+            if (bandCount <= i)
+            {
+                waitingTime += 7.5f;
+                bandCount++;
+            }
+        }        
+    }
+
 }

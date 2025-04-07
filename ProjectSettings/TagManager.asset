@@ -18,6 +18,8 @@ TagManager:
   - Pot
   - Level2
   - Counter Slot
+  - PrepTimeItem
+  - NPCPatience
   layers:
   - Default
   - TransparentFX

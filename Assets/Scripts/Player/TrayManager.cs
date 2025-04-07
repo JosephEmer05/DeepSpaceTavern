@@ -14,11 +14,9 @@ public class TrayManager : MonoBehaviour
     private void Update()
     {
         numSlots = shopManager.currentStock+1;
-        for (int i = 0; i < numSlots; i++)
-        {
-            traySlots[i].SetActive(true);
-        }
+        AddTraySlot();
     }
+
     public GameObject CheckTraySlot()
     {
         foreach (Transform child in transform)
@@ -51,8 +49,6 @@ public class TrayManager : MonoBehaviour
 
     public void AddTraySlot()
     {
-        numSlots++;
-
         for (int i = 0; i < numSlots; i++)
         {
             traySlots[i].SetActive(true);

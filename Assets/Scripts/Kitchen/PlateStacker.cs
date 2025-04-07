@@ -40,6 +40,8 @@ public class PlateStacker : MonoBehaviour
     public int numSlots = 4;
     public GameObject counterShop;
     private ShopItem shopManager;
+
+    public AudioPlayer player;
     private void Start()
     {
         shopManager = counterShop.GetComponent<ShopItem>();
@@ -152,6 +154,7 @@ public class PlateStacker : MonoBehaviour
         resultImage.sprite = correctImage;
         StartCoroutine(HideResultImageAfterDelay(2f));
         SpawnCompletedDish(detectedDish);
+        player.PlayOneShotClip();
         ClearPlate();
     }
 

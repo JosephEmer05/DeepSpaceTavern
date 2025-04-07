@@ -6,15 +6,15 @@ using UnityEngine;
 
 public class WaveManager : MonoBehaviour
 {
-    public int waveNumber = 1;
+    public static int waveNumber = 1;
     public int customerNumber = 10;
     public int customerLeft;
     public float lineWaitTime = 120f;
     public float NPCSeatedWaitTime = 120f;
     public float comboMealChance = 3;
 
-    private int score = 0;
-    public int goldOwned = 1000;
+    public static int score = 0;
+    public int goldOwned = 0;
     private int goldEarned = 0;
 
     public PlayerLook playerLook;
@@ -32,6 +32,7 @@ public class WaveManager : MonoBehaviour
     LineCountDown lineCountDown;
     ShopManager shopManager;
     NPC_Spawner nPC_Spawner;
+    ChairManager chairManager;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -40,10 +41,13 @@ public class WaveManager : MonoBehaviour
         lineCountDown = UnityEngine.Object.FindAnyObjectByType<LineCountDown>();
         shopManager = UnityEngine.Object.FindAnyObjectByType<ShopManager>();
         nPC_Spawner = UnityEngine.Object.FindAnyObjectByType<NPC_Spawner>();
+        chairManager = UnityEngine.Object.FindAnyObjectByType<ChairManager>();
 
-        goldOwned = 0;
+
         goldOwnedTextUI.text = goldOwned + "g";
 
+        waveNumber = 1;
+        score = 0;
     }
 
     // Update is called once per frame
@@ -59,10 +63,6 @@ public class WaveManager : MonoBehaviour
             lineCountDown.startTime = false;
             WaveDone();
         }
-
-        GameData.finalscore = score; // Save score
-        GameData.finalWave = waveNumber-1; // Save wave number
-
     }
 
     public void UpdateCustomerLeft()
@@ -108,6 +108,7 @@ public class WaveManager : MonoBehaviour
 
     public int GoldEarnedUpdater(int foodValue)
     {
+        ScoreUpdater();
         goldEarned += foodValue;
         return goldEarned;
     }
@@ -132,6 +133,7 @@ public class WaveManager : MonoBehaviour
         {
             LevelChange();
         }
+        chairManager.FindAllChairs();
     }
 
     public void LevelChange()
