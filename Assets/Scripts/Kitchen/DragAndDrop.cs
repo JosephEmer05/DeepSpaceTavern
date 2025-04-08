@@ -2,31 +2,42 @@ using UnityEngine;
 
 public class DragAndDrop : MonoBehaviour
 {
-    private Vector3 offset;
-    private float zCoordinate;
+    private float fixedZ;  // Keep original z position
+    private bool isFollowingMouse = true;
 
-    private void OnMouseDown()
+    private void Start()
     {
-        // Get the Z position of the object in world space
-        zCoordinate = Camera.main.WorldToScreenPoint(transform.position).z;
-
-        // Convert mouse position to world position and calculate offset
-        offset = transform.position - GetMouseWorldPos();
+        fixedZ = transform.position.z;
     }
 
-    private void OnMouseDrag()
+    private void Update()
     {
-        // Update object position based on mouse position
-        transform.position = GetMouseWorldPos() + offset;
+        if (isFollowingMouse)
+        {
+            FollowMouse();
+
+            Input.GetMouseButtonDown(0);
+
+        }
+    }
+
+    private void FollowMouse()
+    {
+        transform.position = GetMouseWorldPos();
     }
 
     private Vector3 GetMouseWorldPos()
     {
-        // Get current mouse position in screen space
         Vector3 mouseScreenPos = Input.mousePosition;
-        mouseScreenPos.z = zCoordinate;  // Maintain the original Z position
+        mouseScreenPos.z = Camera.main.nearClipPlane;
+        Vector3 worldPos = Camera.main.ScreenToWorldPoint(mouseScreenPos);
+        worldPos.z = fixedZ;
+        return worldPos;
+    }
 
-        // Convert screen position to world position
-        return Camera.main.ScreenToWorldPoint(mouseScreenPos);
+    private void OnMouseDown()
+    {
+        // Toggle follow mode when clicked
+        isFollowingMouse = !isFollowingMouse;
     }
 }

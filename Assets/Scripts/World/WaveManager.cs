@@ -1,3 +1,4 @@
+using DG.Tweening.Core.Easing;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -6,7 +7,7 @@ using UnityEngine;
 
 public class WaveManager : MonoBehaviour
 {
-    public static int waveNumber = 1;
+    public static int waveNumber = 2;
     public int customerNumber = 10;
     public int customerLeft;
     public float lineWaitTime = 120f;
@@ -124,11 +125,19 @@ public class WaveManager : MonoBehaviour
             comboMealChance = 0;
             nPC_Spawner.canSpawn = true;
         }
+        else if (waveNumber == 3)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+            playerLook.enabled = false;
+            shopManager.ShopUIIntroOpen();
+        }
         else
         {
             comboMealChance += 3;
             shopManager.ShopReveal();
         }
+
         if (waveNumber <= 4)
         {
             LevelChange();

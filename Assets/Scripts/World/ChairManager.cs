@@ -26,6 +26,18 @@ public class ChairManager : MonoBehaviour
         }
     }
 
+    public bool CheckAvailableChairToSpawn()
+    {
+        foreach (GameObject chair in chairList)
+        {
+            if (!ChairIsOccupied(chair) && !chairReserved[chair])
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public GameObject FindAvailableChair()
     {
         foreach (GameObject chair in chairList)

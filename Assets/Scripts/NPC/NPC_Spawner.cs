@@ -5,6 +5,7 @@ using System;
 public class NPC_Spawner : MonoBehaviour
 {
     private WaveManager waveManager;
+    private ChairManager chairManager;
     public GameObject[] NPCTypes;
     public GameObject spawnPoint;
     public bool canSpawn = true;
@@ -14,6 +15,7 @@ public class NPC_Spawner : MonoBehaviour
     private void Awake()
     {
         waveManager = UnityEngine.Object.FindAnyObjectByType<WaveManager>();
+        chairManager = UnityEngine.Object.FindAnyObjectByType<ChairManager>();
 
         canSpawn = true;
     }
@@ -23,20 +25,32 @@ public class NPC_Spawner : MonoBehaviour
         if (canSpawn)
         {
             canSpawn = false;
-            Debug.Log("NPC Spawned");
             StartCoroutine(SpawnNPC());
         }
     }
 
     private IEnumerator SpawnNPC()
     {
-        for (int i = 0; i < waveManager.customerNumber; i++)
+        int totalNPCSpawn = waveManager.customerNumber;
+        int totalSpawned = 0;
+
+        while (totalSpawned < totalNPCSpawn)
         {
-            int randomNPC = UnityEngine.Random.Range(0, NPCTypes.Length);
-            Instantiate(NPCTypes[randomNPC], spawnPoint.transform.position, Quaternion.identity, this.transform);
-            
-            yield return new WaitForSeconds(UnityEngine.Random.Range(2f, 4f));
+            if (chairManager.CheckAvailableChairToSpawn())  
+            {
+                int randomNPC = UnityEngine.Random.Range(0, NPCTypes.Length);
+                Instantiate(NPCTypes[randomNPC], spawnPoint.transform.position, Quaternion.identity, this.transform);
+                totalSpawned++;
+
+                yield return new WaitForSeconds(UnityEngine.Random.Range(6f, 7f));
+            }
+            else
+            {
+                yield return null;
+            }
         }
+
+        canSpawn = false;
     }
+
 }
- 

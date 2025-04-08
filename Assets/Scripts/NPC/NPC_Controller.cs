@@ -23,7 +23,6 @@ public class NPC_Controller : MonoBehaviour
     public bool isLeaving = false;
     public bool loseLife = false;
     public bool lostLife = false;
-    public bool foodComponentsTaken = false;
 
     private GameObject targetChair;
     public GameObject food1Slot;
@@ -73,6 +72,10 @@ public class NPC_Controller : MonoBehaviour
         exitPoint = GameObject.FindWithTag("Exit");
         agent = GetComponent<NavMeshAgent>();
         poofEffect = GetComponent<VisualEffect>();
+
+        foodShake1 = food1Slot.GetComponent<FoodShake>();
+        foodShake2A = food2ASlot.GetComponent<FoodShake>();
+        foodShake2B = food2BSlot.GetComponent<FoodShake>();
     }
 
     // Update is called once per frame
@@ -88,13 +91,6 @@ public class NPC_Controller : MonoBehaviour
             waitingTime -= Time.deltaTime;
             if (waitingTime <= angryTimeLeft && !foodServed)
             {
-                if (!foodComponentsTaken)
-                {
-                    foodShake1 = food1Slot.GetComponent<FoodShake>();
-                    foodShake2A = food2ASlot.GetComponent<FoodShake>();
-                    foodShake2B = food2BSlot.GetComponent<FoodShake>();
-                    foodComponentsTaken = true;
-                }
                 foodShake1.FoodShaking(food1Slot);
                 foodShake2A.FoodShaking(food2ASlot);
                 foodShake2B.FoodShaking(food2BSlot);
