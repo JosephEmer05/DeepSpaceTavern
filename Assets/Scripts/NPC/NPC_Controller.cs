@@ -48,6 +48,10 @@ public class NPC_Controller : MonoBehaviour
 
     public int bandCount = 0;
 
+    public NPCAudio player;
+    public bool impatient = false;
+    public bool poof = false;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -81,7 +85,11 @@ public class NPC_Controller : MonoBehaviour
                 foodShake1.FoodShaking(food1Slot);
                 foodShake2A.FoodShaking(food2ASlot);
                 foodShake2B.FoodShaking(food2BSlot);
-
+                if (!impatient)
+                {
+                    StartCoroutine(PlayImpatient());
+                }
+                
                 anim.SetBool("Tantrum", true);
                 if (waitingTime <= 0)
                 {
@@ -157,6 +165,7 @@ public class NPC_Controller : MonoBehaviour
 
     public void SitOnChair()
     {
+        player.Order();
         isWalkingToChair = false;
         isSeated = true;
         anim.SetTrigger("Sit");
@@ -190,6 +199,7 @@ public class NPC_Controller : MonoBehaviour
 
     public IEnumerator WrongFood()
     {
+        player.WrongDish();
         anim.SetBool("Tantrum", true);
         yield return new WaitForSeconds(2f);
         anim.SetBool("Tantrum", false);
@@ -340,12 +350,13 @@ public class NPC_Controller : MonoBehaviour
         }
         transform.position = Vector3.MoveTowards(transform.position, exitPoint.transform.position, moveSpeed * Time.deltaTime);
         float distance = Vector3.Distance(transform.position, exitPoint.transform.position);
-
+        if (!poof)
         StartCoroutine(Poof());
     }
 
     public IEnumerator Poof()
     {
+        poof = true;
         Renderer[] renderers = GetComponentsInChildren<Renderer>();
 
         foreach (Renderer rend in renderers)
@@ -361,6 +372,7 @@ public class NPC_Controller : MonoBehaviour
             rend.materials = newMaterials;
         }
         yield return new WaitForSeconds(5f);
+        player.Poof();
         Destroy(gameObject);
     }
 
@@ -382,4 +394,11 @@ public class NPC_Controller : MonoBehaviour
         }        
     }
 
+    public IEnumerator PlayImpatient()
+    {   
+        impatient = true;
+        player.Impatient();
+        yield return new WaitForSeconds(0.5f);
+       
+    }
 }

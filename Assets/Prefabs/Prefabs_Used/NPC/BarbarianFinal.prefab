@@ -2073,8 +2073,9 @@ GameObject:
   - component: {fileID: 6393407668638672790}
   - component: {fileID: 8507669661694717775}
   - component: {fileID: 4941448927489694029}
-  - component: {fileID: 3946578486647901652}
   - component: {fileID: 4810479522431822145}
+  - component: {fileID: 5641930568018356644}
+  - component: {fileID: -4695093252977854769}
   m_Layer: 6
   m_Name: BarbarianFinal
   m_TagString: NPC
@@ -2225,19 +2226,10 @@ MonoBehaviour:
   eatingTime: 5
   waitingTime: 0
   angryTimeLeft: 15
---- !u!114 &3946578486647901652
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4978716320460466532}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e079a2d71541a26489a4632120dfc941, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetLinePoint: {fileID: 0}
+  shopManager: {fileID: 0}
+  NPCPatienceAdded: 0
+  bandCount: 0
+  player: {fileID: -4695093252977854769}
 --- !u!195 &4810479522431822145
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -2260,6 +2252,121 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!82 &5641930568018356644
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4978716320460466532}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 5
+  MaxDistance: 1500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &-4695093252977854769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4978716320460466532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1df5d08f4c9d750408483854f8ad5787, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  npcPlayer: {fileID: 5641930568018356644}
+  eating: {fileID: 8300000, guid: f8b0fd760f9f7674ea3d5bb27ba581d0, type: 3}
+  impatient: {fileID: 8300000, guid: 158b08ecd2ba6b34ab1733415a3bc67b, type: 3}
+  poof: {fileID: 8300000, guid: e3c3f57a5966a774a993991e1022f6c4, type: 3}
+  wrongDish: {fileID: 8300000, guid: 984079e92f057694b9214dcb28a72d9a, type: 3}
+  order: {fileID: 8300000, guid: 7b0693ae0ff6de649bb47f8f6043abe7, type: 3}
 --- !u!1 &5008703916224417388
 GameObject:
   m_ObjectHideFlags: 0

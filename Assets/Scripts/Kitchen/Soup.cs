@@ -16,6 +16,8 @@ public class Soup : MonoBehaviour
     public int soupFill = 0;
     private List<string> ingredients = new List<string>();
 
+    public AudioPlayer player; 
+
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -41,6 +43,7 @@ public class Soup : MonoBehaviour
 
     void UpdateSoupSprite()
     {
+        player.PlayOneShotClip();
         if (soupFill == 1)
             spriteRenderer.sprite = half;
         else if (soupFill >= 2)
@@ -52,11 +55,11 @@ public class Soup : MonoBehaviour
 
    public void ServeSoup()
     {
+        player.StopAudio();
         if (soupFill >= 2)
         {
             GameObject newSoup = Instantiate(soupPrefab, spawnPoint.position, Quaternion.identity);
 
-            // Reset everything
             ingredients.Clear();
             soupFill = 0;
             spriteRenderer.sprite = empty;

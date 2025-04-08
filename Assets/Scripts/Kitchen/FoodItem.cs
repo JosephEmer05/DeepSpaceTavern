@@ -59,6 +59,7 @@ public class FoodItem : MonoBehaviour
         if ((foodType == FoodType.Ingredient && other.CompareTag("Grill")) ||
             (foodType == FoodType.Mug && other.CompareTag("Keg")))
         {
+            player.StopAudio();
             onCookingSurface = false;
         }
     }
@@ -89,9 +90,12 @@ public class FoodItem : MonoBehaviour
             spriteRenderer.sprite = cookedSprite;
             isCooked = true;
         }
-        
+
+        player.StopAudio();
+
         isCooking = false;
     }
+
 
     public void GrillBoost()
     {
