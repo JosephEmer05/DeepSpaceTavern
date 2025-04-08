@@ -7,7 +7,7 @@ using UnityEngine;
 
 public class WaveManager : MonoBehaviour
 {
-    public static int waveNumber = 2;
+    public static int waveNumber = 1;
     public int customerNumber = 10;
     public int customerLeft;
     public float lineWaitTime = 120f;
@@ -22,8 +22,8 @@ public class WaveManager : MonoBehaviour
 
     public GameObject endOfWaveUI;
     public TextMeshProUGUI waveNumText;
+    public TextMeshProUGUI waveNumTextUI;
     public TextMeshProUGUI goldEarnedText;
-    public TextMeshProUGUI goldOwnedTextWaveDone;
     public TextMeshProUGUI goldOwnedTextUI;
 
     public GameObject[] navMeshArray;
@@ -73,23 +73,26 @@ public class WaveManager : MonoBehaviour
 
     public void WaveDone()
     {
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
-        playerLook.enabled = false;
+        ShowCursorAndDisableLook();
         endOfWaveUI.gameObject.SetActive(true);
-        waveNumText.text = "WAVE" + waveNumber;
+        waveNumText.text = "WAVE " + waveNumber;
         goldEarnedText.text = goldEarned + "g";
-        goldOwnedTextWaveDone.text = goldOwned + "g";
     }
 
     public void CloseWaveUI()
     {
-        WaveReset();
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-        playerLook.enabled = true;
+        if (waveNumber == 2)
+        {
+            ShowCursorAndDisableLook();
+            shopManager.ShopUIIntroOpen();
+        }
+        else
+        {
+            HideCursorAndEnableLook();
+        }
+
         endOfWaveUI.gameObject.SetActive(false);
- 
+        WaveReset();
     }
 
     public void ScoreUpdater()
@@ -114,6 +117,11 @@ public class WaveManager : MonoBehaviour
         return goldEarned;
     }
 
+    public void UpdateWaveNumText()
+    {
+        waveNumTextUI.text = "Wave " + waveNumber;
+    }
+
     public void WaveReset()
     {
         waveNumber++;
@@ -124,13 +132,7 @@ public class WaveManager : MonoBehaviour
         {
             comboMealChance = 0;
             nPC_Spawner.canSpawn = true;
-        }
-        else if (waveNumber == 3)
-        {
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
-            playerLook.enabled = false;
-            shopManager.ShopUIIntroOpen();
+            UpdateWaveNumText();
         }
         else
         {
@@ -156,5 +158,18 @@ public class WaveManager : MonoBehaviour
             brokenArray[waveNumber - 2].SetActive(false);
             fixedArray[waveNumber - 2].SetActive(true);
         }       
+    }
+
+    private void ShowCursorAndDisableLook()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        playerLook.enabled = false;
+    }
+    private void HideCursorAndEnableLook()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        playerLook.enabled = true;
     }
 }

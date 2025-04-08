@@ -16,6 +16,7 @@ public class ShopManager : MonoBehaviour
     NPC_Spawner nPC_Spawner;
     WaveManager waveManager;
 
+
     public bool startShopTime = false;
     public float shopTimer = 30f;
 
@@ -75,5 +76,6 @@ public class ShopManager : MonoBehaviour
         startShopTime =false;
         shopTimer = 30f;
         nPC_Spawner.canSpawn = true;
+        waveManager.UpdateWaveNumText();
     }
 }
