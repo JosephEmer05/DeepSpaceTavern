@@ -20,6 +20,7 @@ public class NPC_Controller : MonoBehaviour
     public bool orderTaken = false;
     public bool foodServed = false;
     public bool isLeaving = false;
+    public bool loseLife = false;
 
     private GameObject targetChair;
     public GameObject food1Slot;
@@ -94,7 +95,7 @@ public class NPC_Controller : MonoBehaviour
                     GetOffChair();
                     food1Slot.SetActive(false);
                     food2Slot.SetActive(false);
-                    playerHealth.LoseLife();
+                    loseLife = true;
                     LeaveTavern();
                 }
             }
@@ -355,9 +356,21 @@ public class NPC_Controller : MonoBehaviour
     {
         poof = true;
         yield return new WaitForSeconds(5f);
+        
+        if (loseLife)
+        {
+            playerHealth.LoseLife();
+        }
+        
         player.Poof();
-        yield return new WaitForSeconds(0.1f);
+        
+        Renderer[] renderers = GetComponentsInChildren<Renderer>();
+        foreach (Renderer renderer in renderers)
+        {
+            renderer.enabled = false;
+        }
 
+        yield return new WaitForSeconds(5f);
         Destroy(gameObject);
 
     }

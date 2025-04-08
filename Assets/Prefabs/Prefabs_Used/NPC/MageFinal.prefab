@@ -2602,13 +2602,13 @@ MonoBehaviour:
   orderTaken: 0
   foodServed: 0
   isLeaving: 0
+  loseLife: 0
   food1Slot: {fileID: 1286040263692967491}
   food2Slot: {fileID: 7071532926127512613}
   food2ASlot: {fileID: 3293634918796285989}
   food2BSlot: {fileID: 4492829450077302087}
   handSlot: {fileID: 4952599567308971195}
   exitPoint: {fileID: 0}
-  dissolveMat: {fileID: 2100000, guid: be7b5c995d7eb124ba31704701bb344e, type: 2}
   moveSpeed: 2
   rotationSpeed: 5
   eatingTime: 5
@@ -2618,6 +2618,8 @@ MonoBehaviour:
   NPCPatienceAdded: 0
   bandCount: 0
   player: {fileID: 279435334989750267}
+  impatient: 0
+  poof: 0
 --- !u!195 &6581665060793938867
 NavMeshAgent:
   m_ObjectHideFlags: 0
