@@ -90,11 +90,11 @@ public class NPC_Controller : MonoBehaviour
                 anim.SetBool("Tantrum", true);
                 if (waitingTime <= 0)
                 {
-                    playerHealth.LoseLife();
                     anim.SetBool("Tantrum", false);
                     GetOffChair();
                     food1Slot.SetActive(false);
                     food2Slot.SetActive(false);
+                    playerHealth.LoseLife();
                     LeaveTavern();
                 }
             }
@@ -356,7 +356,10 @@ public class NPC_Controller : MonoBehaviour
         poof = true;
         yield return new WaitForSeconds(5f);
         player.Poof();
+        yield return new WaitForSeconds(0.1f);
+
         Destroy(gameObject);
+
     }
 
     public void NPCPatienceBoost()
