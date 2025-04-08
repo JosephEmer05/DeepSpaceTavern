@@ -106,8 +106,6 @@ public class PlayerInteract : MonoBehaviour
 
                 return;
             }
-
-            //hit.collider.GetComponent<Highlight>()?.ToggleHighlight(true);
         }
     }
 
