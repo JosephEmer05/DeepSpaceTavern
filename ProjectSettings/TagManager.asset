@@ -20,6 +20,7 @@ TagManager:
   - Counter Slot
   - PrepTimeItem
   - NPCPatience
+  - PoofEffect
   layers:
   - Default
   - TransparentFX

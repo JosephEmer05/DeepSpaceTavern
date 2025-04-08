@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.VFX;
 
 public class NPC_Controller : MonoBehaviour
 {
@@ -21,6 +22,8 @@ public class NPC_Controller : MonoBehaviour
     public bool foodServed = false;
     public bool isLeaving = false;
     public bool loseLife = false;
+    public bool lostLife = false;
+    public bool foodComponentsTaken = false;
 
     private GameObject targetChair;
     public GameObject food1Slot;
@@ -39,7 +42,7 @@ public class NPC_Controller : MonoBehaviour
     public float rotationSpeed = 5f;
     public float eatingTime = 5f;
     public float waitingTime;
-    public float angryTimeLeft = 15f;
+    public float angryTimeLeft = 30f;
 
     public ShopItem shopManager;
     public bool NPCPatienceAdded = false;
@@ -49,6 +52,13 @@ public class NPC_Controller : MonoBehaviour
     public NPCAudio player;
     public bool impatient = false;
     public bool poof = false;
+
+    public VisualEffect poofEffect;
+
+
+    FoodShake foodShake1;
+    FoodShake foodShake2A;
+    FoodShake foodShake2B;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -62,6 +72,7 @@ public class NPC_Controller : MonoBehaviour
         waitingTime = waveManager.NPCSeatedWaitTime;
         exitPoint = GameObject.FindWithTag("Exit");
         agent = GetComponent<NavMeshAgent>();
+        poofEffect = GetComponent<VisualEffect>();
     }
 
     // Update is called once per frame
@@ -77,9 +88,13 @@ public class NPC_Controller : MonoBehaviour
             waitingTime -= Time.deltaTime;
             if (waitingTime <= angryTimeLeft && !foodServed)
             {
-                FoodShake foodShake1 = food1Slot.GetComponent<FoodShake>();
-                FoodShake foodShake2A = food2ASlot.GetComponent<FoodShake>();
-                FoodShake foodShake2B = food2BSlot.GetComponent<FoodShake>();
+                if (!foodComponentsTaken)
+                {
+                    foodShake1 = food1Slot.GetComponent<FoodShake>();
+                    foodShake2A = food2ASlot.GetComponent<FoodShake>();
+                    foodShake2B = food2BSlot.GetComponent<FoodShake>();
+                    foodComponentsTaken = true;
+                }
                 foodShake1.FoodShaking(food1Slot);
                 foodShake2A.FoodShaking(food2ASlot);
                 foodShake2B.FoodShaking(food2BSlot);
@@ -349,7 +364,10 @@ public class NPC_Controller : MonoBehaviour
         transform.position = Vector3.MoveTowards(transform.position, exitPoint.transform.position, moveSpeed * Time.deltaTime);
         float distance = Vector3.Distance(transform.position, exitPoint.transform.position);
         if (!poof)
-        StartCoroutine(Poof());
+        {
+            StartCoroutine(Poof());
+        }
+        
     }
 
     public IEnumerator Poof()
@@ -357,18 +375,19 @@ public class NPC_Controller : MonoBehaviour
         poof = true;
         yield return new WaitForSeconds(5f);
         
-        if (loseLife)
+        if (loseLife && !lostLife)
         {
             playerHealth.LoseLife();
+            lostLife = true;
         }
-        
-        player.Poof();
-        
+
         Renderer[] renderers = GetComponentsInChildren<Renderer>();
         foreach (Renderer renderer in renderers)
         {
             renderer.enabled = false;
         }
+        player.Poof();
+        poofEffect.enabled = true;
 
         yield return new WaitForSeconds(5f);
         Destroy(gameObject);
