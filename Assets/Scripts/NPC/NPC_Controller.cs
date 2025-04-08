@@ -32,9 +32,6 @@ public class NPC_Controller : MonoBehaviour
     public GameObject exitPoint;
     private NavMeshAgent agent;
 
-    public Material dissolveMat;
-
-
     private Animator anim;
 
     public float moveSpeed = 0.5f;
@@ -357,20 +354,6 @@ public class NPC_Controller : MonoBehaviour
     public IEnumerator Poof()
     {
         poof = true;
-        Renderer[] renderers = GetComponentsInChildren<Renderer>();
-
-        foreach (Renderer rend in renderers)
-        {
-            // Replace all materials with the dissolveMat
-            Material[] newMaterials = new Material[rend.materials.Length];
-
-            for (int i = 0; i < newMaterials.Length; i++)
-            {
-                newMaterials[i] = dissolveMat;
-            }
-
-            rend.materials = newMaterials;
-        }
         yield return new WaitForSeconds(5f);
         player.Poof();
         Destroy(gameObject);
