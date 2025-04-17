@@ -5,17 +5,17 @@ using UnityEngine;
 public class Highlight : MonoBehaviour
 {
     [SerializeField]
-    private string hexColor = "#1A0D00"; 
+    private string hexColor = "#1A0D00";
 
     private List<Material> materials = new List<Material>();
-    private Color color; 
+    private Color color;
 
     private void Awake()
     {
         if (!ColorUtility.TryParseHtmlString(hexColor, out color))
         {
             Debug.LogError("Invalid hex color format! Defaulting to white.");
-            color = Color.white; 
+            color = Color.white;
         }
 
         Renderer[] foundRenderers = GetComponentsInChildren<Renderer>();
