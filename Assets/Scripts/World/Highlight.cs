@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class Highlight : MonoBehaviour
 {
-    [SerializeField]
-    private string hexColor = "#1A0D00";
+    private string hexColor = "#FF0000";
 
     private List<Material> materials = new List<Material>();
     private Color color;

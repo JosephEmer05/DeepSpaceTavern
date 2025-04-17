@@ -830,7 +830,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 528db6e1919a8184da023f8413c419af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hexColor: '#1A0D00'
+  hexColor: '#FF0000'
 --- !u!114 &5613257857699806769
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -850,7 +850,6 @@ MonoBehaviour:
   isLeaving: 0
   loseLife: 0
   lostLife: 0
-  foodComponentsTaken: 0
   food1Slot: {fileID: 7401080525336248117}
   food2Slot: {fileID: 597516357019972191}
   food2ASlot: {fileID: 1443741613473189965}
