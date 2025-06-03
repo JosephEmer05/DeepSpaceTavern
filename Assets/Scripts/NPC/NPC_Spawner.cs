@@ -10,6 +10,9 @@ public class NPC_Spawner : MonoBehaviour
     public GameObject spawnPoint;
     public bool canSpawn = true;
 
+    private Coroutine spawnCoroutine;
+
+
 
 
     private void Awake()
@@ -22,10 +25,10 @@ public class NPC_Spawner : MonoBehaviour
 
     void Update()
     {
-        if (canSpawn)
+        if (canSpawn && spawnCoroutine == null)
         {
             canSpawn = false;
-            StartCoroutine(SpawnNPC());
+            spawnCoroutine = StartCoroutine(SpawnNPC());
         }
     }
 
@@ -52,5 +55,16 @@ public class NPC_Spawner : MonoBehaviour
 
         canSpawn = false;
     }
+
+    public void ResetSpawner()
+    {
+        if (spawnCoroutine != null)
+        {
+            StopCoroutine(spawnCoroutine);
+            spawnCoroutine = null;
+        }
+        canSpawn = true;
+    }
+
 
 }

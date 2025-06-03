@@ -1065,6 +1065,7 @@ MonoBehaviour:
   NPCSeatedWaitTime: 120
   comboMealChance: 3
   goldOwned: 0
+  goldEarned: 0
   playerLook: {fileID: 1284302746}
   endOfWaveUI: {fileID: 937301512}
   waveNumText: {fileID: 889701312}
@@ -7267,6 +7268,8 @@ MonoBehaviour:
   quitButton: {fileID: 1733192103}
   crosshairImage: {fileID: 341549379}
   player: {fileID: 1284302739}
+  waveManager: {fileID: 28837476}
+  npcSpawner: {fileID: 646794122}
 --- !u!4 &155712801
 Transform:
   m_ObjectHideFlags: 0
@@ -12469,7 +12472,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 261689577}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 155712800}
+        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
+        m_MethodName: RestartLevel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &261740356
 PrefabInstance:
   m_ObjectHideFlags: 0

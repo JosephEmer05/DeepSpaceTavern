@@ -16,7 +16,7 @@ public class WaveManager : MonoBehaviour
 
     public static int score = 0;
     public int goldOwned = 0;
-    private int goldEarned = 0;
+    public int goldEarned = 0;
 
     public PlayerLook playerLook;
 
@@ -144,7 +144,13 @@ public class WaveManager : MonoBehaviour
         {
             LevelChange();
         }
+
         chairManager.FindAllChairs();
+
+        if (nPC_Spawner != null)
+        {
+            nPC_Spawner.ResetSpawner();
+        }
     }
 
     public void LevelChange()
@@ -159,6 +165,36 @@ public class WaveManager : MonoBehaviour
             fixedArray[waveNumber - 2].SetActive(true);
         }       
     }
+
+    public void RestartWave()
+    {
+        GameObject[] npcs = GameObject.FindGameObjectsWithTag("NPC");
+        foreach (GameObject npc in npcs)
+        {
+            Destroy(npc);
+        }
+
+        goldOwned -= goldEarned;
+        goldEarned = 0;
+        goldOwnedTextUI.text = goldOwned + "g";
+        customerLeft = customerNumber;
+
+        if (nPC_Spawner != null)
+        {
+            nPC_Spawner.canSpawn = true;
+        }
+
+        chairManager.FindAllChairs();
+
+        endOfWaveUI.SetActive(false);
+        HideCursorAndEnableLook();
+
+
+        Debug.Log("Wave restarted, values kept: Wave " + waveNumber + ", CustomerNum: " + customerNumber);
+        Debug.Log("Restart button pressed");
+
+    }
+
 
     private void ShowCursorAndDisableLook()
     {

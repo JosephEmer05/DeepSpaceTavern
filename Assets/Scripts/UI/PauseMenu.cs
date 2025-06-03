@@ -1,3 +1,4 @@
+using DG.Tweening.Core.Easing;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -18,6 +19,10 @@ public class PauseMenu : MonoBehaviour
     private PlayerMovement playerMovement;
 
     private bool isPaused = false;
+
+    public WaveManager waveManager;
+    public NPC_Spawner npcSpawner;
+
 
     void Start()
     {
@@ -104,9 +109,33 @@ public class PauseMenu : MonoBehaviour
 
     public void RestartLevel()
     {
+        Debug.Log("Restart button pressed");
+
         Time.timeScale = 1f;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        isPaused = false;
+
+        SetPauseUI(false);
+        SetCursorState(true);
+        TogglePlayerControl(true);
+        ShowCrosshair(true);
+
+        if (waveManager != null)
+        {
+            Debug.Log("Calling WaveManager.RestartWave()");
+            waveManager.RestartWave();
+            if (npcSpawner != null)
+            {
+                npcSpawner.ResetSpawner();
+            }
+
+        }
+        else
+        {
+            Debug.LogError("waveManager reference is null");
+        }
     }
+
+
 
     public void QuitGame()
     {
