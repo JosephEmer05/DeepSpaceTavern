@@ -147,18 +147,10 @@ public class NPC_Controller : MonoBehaviour
 
     public void WalkToChair()
     {
-        Vector3 direction = (targetChair.transform.position - transform.position).normalized;
 
-        if (direction != Vector3.zero)
-        {
-            Quaternion lookRotation = Quaternion.LookRotation(direction);
-            transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, rotationSpeed * Time.deltaTime);
-        }
-
-        transform.position = Vector3.MoveTowards(transform.position, targetChair.transform.position, moveSpeed * Time.deltaTime);
-
+        agent.SetDestination(targetChair.transform.position);
         float distance = Vector3.Distance(transform.position, targetChair.transform.position);
-        if (distance < 1.5f)
+        if (distance < 0.1f)
         {
             Quaternion chairRotation = targetChair.transform.rotation;
             transform.rotation = Quaternion.Slerp(transform.rotation, chairRotation, rotationSpeed * Time.deltaTime);
