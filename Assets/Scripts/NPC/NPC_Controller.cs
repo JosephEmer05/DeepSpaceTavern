@@ -34,6 +34,7 @@ public class NPC_Controller : MonoBehaviour
     private int foodServedCount = 0;
     public GameObject exitPoint;
     private NavMeshAgent agent;
+    private NavMeshObstacle obstacle;
 
     private Animator anim;
 
@@ -71,6 +72,7 @@ public class NPC_Controller : MonoBehaviour
         waitingTime = waveManager.NPCSeatedWaitTime;
         exitPoint = GameObject.FindWithTag("Exit");
         agent = GetComponent<NavMeshAgent>();
+        obstacle = GetComponent<NavMeshObstacle>();
         poofEffect = GetComponent<VisualEffect>();
 
         foodShake1 = food1Slot.GetComponent<FoodShake>();
@@ -172,6 +174,7 @@ public class NPC_Controller : MonoBehaviour
         anim.SetTrigger("Sit");
         transform.position = targetChair.transform.position;
         transform.SetParent(targetChair.transform);
+        obstacle.enabled = true;
     }
 
     public void OrderFood()
@@ -341,6 +344,7 @@ public class NPC_Controller : MonoBehaviour
 
     public void LeaveTavern()
     {
+        obstacle.enabled = false;
         agent.enabled = true;
         agent.SetDestination(exitPoint.transform.position);
         GetComponent<Collider>().enabled = false; 

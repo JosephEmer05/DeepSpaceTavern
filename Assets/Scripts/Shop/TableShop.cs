@@ -3,7 +3,6 @@ using UnityEngine;
 public class TableShop : MonoBehaviour
 {
     public GameObject[] table;
-    public GameObject[] navMesh;
 
     public GameObject tableItem;
     private ShopItem shopManager;
@@ -13,7 +12,6 @@ public class TableShop : MonoBehaviour
     void Start()
     {
         shopManager = tableItem.GetComponent<ShopItem>();
-
     }
 
     // Update is called once per frame
@@ -32,10 +30,8 @@ public class TableShop : MonoBehaviour
             for (int i = 0; i < numSlots; i++)
             {
                 table[i].SetActive(true);
-                navMesh[i].SetActive(false);
-                navMesh[numSlots].SetActive(true);
             }
         }
-        
+
     }
 }

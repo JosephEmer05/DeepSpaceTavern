@@ -2467,6 +2467,7 @@ GameObject:
   - component: {fileID: 279435334989750267}
   - component: {fileID: -7827894722867119233}
   - component: {fileID: -1515835585384080774}
+  - component: {fileID: 8599341860951481370}
   m_Layer: 6
   m_Name: MageFinal
   m_TagString: NPC
@@ -2841,6 +2842,22 @@ VFXRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!208 &8599341860951481370
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6883282307360019796}
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &6909624788938820642
 GameObject:
   m_ObjectHideFlags: 0

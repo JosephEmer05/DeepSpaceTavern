@@ -26,7 +26,6 @@ public class WaveManager : MonoBehaviour
     public TextMeshProUGUI goldEarnedText;
     public TextMeshProUGUI goldOwnedTextUI;
 
-    public GameObject[] navMeshArray;
     public GameObject[] brokenArray;
     public GameObject[] fixedArray;
 
@@ -154,10 +153,6 @@ public class WaveManager : MonoBehaviour
 
     public void LevelChange()
     {
-        //navMeshArray[waveNumber - 1].SetActive(true);
-        //navMeshArray[waveNumber - 2].SetActive(false);
-
-
         if ((waveNumber-2) >= 0)
         {
             brokenArray[waveNumber - 2].SetActive(false);
