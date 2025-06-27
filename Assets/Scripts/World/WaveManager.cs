@@ -154,8 +154,8 @@ public class WaveManager : MonoBehaviour
 
     public void LevelChange()
     {
-        navMeshArray[waveNumber - 1].SetActive(true);
-        navMeshArray[waveNumber - 2].SetActive(false);
+        //navMeshArray[waveNumber - 1].SetActive(true);
+        //navMeshArray[waveNumber - 2].SetActive(false);
 
 
         if ((waveNumber-2) >= 0)
