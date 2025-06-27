@@ -1067,7 +1067,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 864383a989166584ab3d256b4b633023, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  customerNumber: 20
+  customerNumber: 100
   customerLeft: 0
   lineWaitTime: 120
   NPCSeatedWaitTime: 10000
@@ -36557,7 +36557,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8833428870696459597, guid: 7d82353b90a69564cb9c74ec48289f97, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 23.9
+      value: 23.63
       objectReference: {fileID: 0}
     - target: {fileID: 8833428870696459597, guid: 7d82353b90a69564cb9c74ec48289f97, type: 3}
       propertyPath: m_LocalPosition.y
@@ -36565,7 +36565,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8833428870696459597, guid: 7d82353b90a69564cb9c74ec48289f97, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -9.899999
+      value: -10.02
       objectReference: {fileID: 0}
     - target: {fileID: 8833428870696459597, guid: 7d82353b90a69564cb9c74ec48289f97, type: 3}
       propertyPath: m_LocalRotation.w
