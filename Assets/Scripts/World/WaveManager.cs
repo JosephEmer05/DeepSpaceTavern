@@ -29,7 +29,7 @@ public class WaveManager : MonoBehaviour
     public GameObject[] brokenArray;
     public GameObject[] fixedArray;
 
-    LineCountDown lineCountDown;
+    EnterTavern enterTavern;
     ShopManager shopManager;
     NPC_Spawner nPC_Spawner;
     ChairManager chairManager;
@@ -38,7 +38,7 @@ public class WaveManager : MonoBehaviour
     {
         customerLeft = customerNumber;
         endOfWaveUI.gameObject.SetActive(false);
-        lineCountDown = UnityEngine.Object.FindAnyObjectByType<LineCountDown>();
+        enterTavern = UnityEngine.Object.FindAnyObjectByType<EnterTavern>();
         shopManager = UnityEngine.Object.FindAnyObjectByType<ShopManager>();
         nPC_Spawner = UnityEngine.Object.FindAnyObjectByType<NPC_Spawner>();
         chairManager = UnityEngine.Object.FindAnyObjectByType<ChairManager>();
@@ -53,14 +53,14 @@ public class WaveManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (lineCountDown.startTime)
+        if (enterTavern.enteredTavern)
         {
             UpdateCustomerLeft();
         }
         
         if (customerLeft == 0)
         {
-            lineCountDown.startTime = false;
+            enterTavern.enteredTavern = false;
             WaveDone();
         }
     }
