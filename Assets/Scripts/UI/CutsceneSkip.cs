@@ -7,6 +7,8 @@ public class CutsceneSkip : MonoBehaviour
     public Animator canvasAnimator;
     public Animator characterAAnimator;
     public Animator characterBAnimator;
+    public Animator BGAnimator;
+    public Animator SMAnimator;
 
     [Header("Animation Clip Info")]
     public float targetSkipTime = 28f;
@@ -35,6 +37,8 @@ public class CutsceneSkip : MonoBehaviour
         SkipAnimatorToTime(canvasAnimator, normalizedTime);
         SkipAnimatorToTime(characterAAnimator, normalizedTime);
         SkipAnimatorToTime(characterBAnimator, normalizedTime);
+        SkipAnimatorToTime(BGAnimator, normalizedTime);
+        SkipAnimatorToTime(SMAnimator, normalizedTime);
     }
 
     void SkipAnimatorToTime(Animator animator, float normalizedTime)

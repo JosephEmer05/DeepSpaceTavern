@@ -1,6 +1,5 @@
 using UnityEngine;
 using System.Collections;
-using System;
 
 public class NPC_Spawner : MonoBehaviour
 {
@@ -8,26 +7,21 @@ public class NPC_Spawner : MonoBehaviour
     private ChairManager chairManager;
     public GameObject[] NPCTypes;
     public GameObject spawnPoint;
-    public bool canSpawn = true;
+    public bool canSpawn = false;  // default to false until a wave starts
 
     private Coroutine spawnCoroutine;
-
-
-
 
     private void Awake()
     {
         waveManager = UnityEngine.Object.FindAnyObjectByType<WaveManager>();
         chairManager = UnityEngine.Object.FindAnyObjectByType<ChairManager>();
-
-        canSpawn = true;
     }
 
     void Update()
     {
+        // Only start spawning if allowed and not already running
         if (canSpawn && spawnCoroutine == null)
         {
-            canSpawn = false;
             spawnCoroutine = StartCoroutine(SpawnNPC());
         }
     }
@@ -39,13 +33,30 @@ public class NPC_Spawner : MonoBehaviour
 
         while (totalSpawned < totalNPCSpawn)
         {
-            if (chairManager.CheckAvailableChairToSpawn())  
+            if (!canSpawn)
             {
+                Debug.Log("Spawning interrupted. Exiting early.");
+                spawnCoroutine = null;
+                yield break;
+            }
+
+            yield return null;
+
+            if (chairManager.CheckAvailableChairToSpawn())
+            {
+                // Add another check after delay before instantiating
+                yield return new WaitForSeconds(Random.Range(6f, 7f));
+
+                if (!canSpawn)
+                {
+                    Debug.Log("Spawning interrupted right before instantiation.");
+                    spawnCoroutine = null;
+                    yield break;
+                }
+
                 int randomNPC = UnityEngine.Random.Range(0, NPCTypes.Length);
                 Instantiate(NPCTypes[randomNPC], spawnPoint.transform.position, Quaternion.identity, this.transform);
                 totalSpawned++;
-
-                yield return new WaitForSeconds(UnityEngine.Random.Range(6f, 7f));
             }
             else
             {
@@ -54,7 +65,10 @@ public class NPC_Spawner : MonoBehaviour
         }
 
         canSpawn = false;
+        spawnCoroutine = null;
     }
+
+
 
     public void ResetSpawner()
     {
@@ -63,8 +77,7 @@ public class NPC_Spawner : MonoBehaviour
             StopCoroutine(spawnCoroutine);
             spawnCoroutine = null;
         }
+
         canSpawn = true;
     }
-
-
 }

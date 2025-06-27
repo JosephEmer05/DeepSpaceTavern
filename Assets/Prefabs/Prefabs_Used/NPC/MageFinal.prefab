@@ -2586,7 +2586,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 528db6e1919a8184da023f8413c419af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hexColor: '#FF0000'
 --- !u!114 &4189696855773910710
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2612,7 +2611,7 @@ MonoBehaviour:
   food2BSlot: {fileID: 4492829450077302087}
   handSlot: {fileID: 4952599567308971195}
   exitPoint: {fileID: 0}
-  moveSpeed: 2
+  moveSpeed: 0.05
   rotationSpeed: 5
   eatingTime: 5
   waitingTime: 0
@@ -2634,7 +2633,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 2
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120

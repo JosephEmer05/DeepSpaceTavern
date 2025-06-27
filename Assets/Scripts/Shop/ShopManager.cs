@@ -1,6 +1,5 @@
 using TMPro;
 using UnityEngine;
-using UnityEngine.LowLevel;
 
 public class ShopManager : MonoBehaviour
 {
@@ -51,17 +50,25 @@ public class ShopManager : MonoBehaviour
         Cursor.visible = false;
         waveManager.playerLook.enabled = true;
         shopIntroUI.SetActive(false);
+        nPC_Spawner.canSpawn = false;
         ShopReveal();
     }
 
     public void ShopReveal()
     {
+        if (nPC_Spawner != null)
+        {
+            nPC_Spawner.ResetSpawner();    
+            nPC_Spawner.canSpawn = false;  
+        }
+
         startShopTime = true;
         shopFloor1.SetActive(false);
         shopFloor2.SetActive(false);
         shoppingTimeUI.SetActive(true);
         shopTimerUI.SetActive(true);
     }
+
 
     public void ShopHide()
     {

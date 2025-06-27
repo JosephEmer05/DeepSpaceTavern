@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Highlight : MonoBehaviour
 {
-    private string hexColor = "#FF0000";
+    private string hexColor = "#002bb5";
 
     private List<Material> materials = new List<Material>();
     private Color color;

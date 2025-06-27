@@ -13,6 +13,12 @@ public class MenuButtons : MonoBehaviour
         Debug.Log("Starting Game...");
         SceneManager.LoadScene("DeepSpaceTavern_2nd");
     }
+    public void Tutorial()
+    {
+        Debug.Log("Starting Tutorial...");
+        SceneManager.LoadScene("Tutorial");
+    }
+
 
     public void QuitGame()
     {

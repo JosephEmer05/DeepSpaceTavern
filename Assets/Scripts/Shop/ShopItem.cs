@@ -16,6 +16,10 @@ public class ShopItem : MonoBehaviour
     public GameObject waveManagerObject;
 
     public TextMeshProUGUI itemCostText;
+
+    public AudioSource buy;
+    public AudioClip chaching;
+    public AudioClip broke;
     void Start()
     {
         soldOut.SetActive(false);
@@ -27,6 +31,12 @@ public class ShopItem : MonoBehaviour
         if (waveManagerScript.goldOwned >= itemCost)
         {
             BuyItem();
+            PurchaseSFX();
+
+        }
+        else
+        {
+            Broke();
         }
     }
 
@@ -56,5 +66,18 @@ public class ShopItem : MonoBehaviour
         itemCost += incrementCost;
         itemCostText.text = itemCost + "g";
 
+    }
+
+    public void PurchaseSFX()
+    {
+        PlayAudioClip(chaching);
+    }
+    public void Broke()
+    {
+        PlayAudioClip(broke);
+    }
+    private void PlayAudioClip(AudioClip clip)
+    {
+        buy.PlayOneShot(clip);
     }
 }

@@ -37,7 +37,7 @@ public class NPC_Controller : MonoBehaviour
 
     private Animator anim;
 
-    public float moveSpeed = 0.5f;
+    public float moveSpeed = 0.05f;
     public float rotationSpeed = 5f;
     public float eatingTime = 5f;
     public float waitingTime;
@@ -342,15 +342,8 @@ public class NPC_Controller : MonoBehaviour
     public void LeaveTavern()
     {
         agent.enabled = true;
-
-        Vector3 direction = (exitPoint.transform.position - transform.position).normalized;
-        if (direction != Vector3.zero)
-        {
-            Quaternion lookRotation = Quaternion.LookRotation(direction);
-            transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, rotationSpeed * Time.deltaTime);
-        }
-        transform.position = Vector3.MoveTowards(transform.position, exitPoint.transform.position, moveSpeed * Time.deltaTime);
-        float distance = Vector3.Distance(transform.position, exitPoint.transform.position);
+        agent.SetDestination(exitPoint.transform.position);
+        GetComponent<Collider>().enabled = false; 
         if (!poof)
         {
             StartCoroutine(Poof());

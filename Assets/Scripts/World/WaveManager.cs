@@ -131,7 +131,6 @@ public class WaveManager : MonoBehaviour
         if (waveNumber <= 2)
         {
             comboMealChance = 0;
-            nPC_Spawner.canSpawn = true;
             UpdateWaveNumText();
         }
         else
