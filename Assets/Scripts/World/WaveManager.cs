@@ -82,7 +82,6 @@ public class WaveManager : MonoBehaviour
     {
         if (waveNumber == 2)
         {
-            ShowCursorAndDisableLook();
             shopManager.ShopUIIntroOpen();
         }
         else
@@ -136,6 +135,10 @@ public class WaveManager : MonoBehaviour
         {
             comboMealChance += 3;
             shopManager.ShopReveal();
+            if (waveNumber > 3) 
+            {
+                shopManager.StartShopTime();
+            }
         }
 
         if (waveNumber <= 4)
@@ -190,13 +193,13 @@ public class WaveManager : MonoBehaviour
     }
 
 
-    private void ShowCursorAndDisableLook()
+    public void ShowCursorAndDisableLook()
     {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         playerLook.enabled = false;
     }
-    private void HideCursorAndEnableLook()
+    public void HideCursorAndEnableLook()
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;

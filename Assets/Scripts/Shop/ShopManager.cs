@@ -42,15 +42,14 @@ public class ShopManager : MonoBehaviour
     public void ShopUIIntroOpen()
     {
         shopIntroUI.SetActive(true);
+        waveManager.ShowCursorAndDisableLook();
     }
 
     public void ShopUIIntroClose()
     {
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-        waveManager.playerLook.enabled = true;
         shopIntroUI.SetActive(false);
         nPC_Spawner.canSpawn = false;
+        waveManager.HideCursorAndEnableLook();
         ShopReveal();
     }
 
@@ -62,11 +61,15 @@ public class ShopManager : MonoBehaviour
             nPC_Spawner.canSpawn = false;  
         }
 
-        startShopTime = true;
         shopFloor1.SetActive(false);
         shopFloor2.SetActive(false);
         shoppingTimeUI.SetActive(true);
         shopTimerUI.SetActive(true);
+    }
+
+    public void StartShopTime()
+    {
+        startShopTime = true;
     }
 
 
