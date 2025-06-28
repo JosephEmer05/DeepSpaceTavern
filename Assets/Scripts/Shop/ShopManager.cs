@@ -48,19 +48,12 @@ public class ShopManager : MonoBehaviour
     public void ShopUIIntroClose()
     {
         shopIntroUI.SetActive(false);
-        nPC_Spawner.canSpawn = false;
         waveManager.HideCursorAndEnableLook();
         ShopReveal();
     }
 
     public void ShopReveal()
     {
-        if (nPC_Spawner != null)
-        {
-            nPC_Spawner.ResetSpawner();    
-            nPC_Spawner.canSpawn = false;  
-        }
-
         shopFloor1.SetActive(false);
         shopFloor2.SetActive(false);
         shoppingTimeUI.SetActive(true);
@@ -85,7 +78,7 @@ public class ShopManager : MonoBehaviour
         shopTimerUI.SetActive(false);
         startShopTime =false;
         shopTimer = 30f;
-        nPC_Spawner.canSpawn = true;
+        nPC_Spawner.ResetSpawner();
         waveManager.UpdateWaveNumText();
     }
 }

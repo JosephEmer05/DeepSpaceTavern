@@ -58,7 +58,7 @@ public class WaveManager : MonoBehaviour
             UpdateCustomerLeft();
         }
         
-        if (customerLeft == 0)
+        if (customerLeft <= 0)
         {
             enterTavern.enteredTavern = false;
             WaveDone();
@@ -90,7 +90,7 @@ public class WaveManager : MonoBehaviour
         }
 
         endOfWaveUI.gameObject.SetActive(false);
-        WaveReset();
+        NewWave();
     }
 
     public void ScoreUpdater()
@@ -120,7 +120,7 @@ public class WaveManager : MonoBehaviour
         waveNumTextUI.text = "Wave " + waveNumber;
     }
 
-    public void WaveReset()
+    public void NewWave()
     {
         waveNumber++;
         goldEarned = 0;
@@ -130,6 +130,7 @@ public class WaveManager : MonoBehaviour
         {
             comboMealChance = 0;
             UpdateWaveNumText();
+            nPC_Spawner.ResetSpawner();
         }
         else
         {
@@ -147,11 +148,6 @@ public class WaveManager : MonoBehaviour
         }
 
         chairManager.FindAllChairs();
-
-        if (nPC_Spawner != null)
-        {
-            nPC_Spawner.ResetSpawner();
-        }
     }
 
     public void LevelChange()
