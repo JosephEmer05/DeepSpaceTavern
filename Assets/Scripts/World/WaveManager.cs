@@ -74,7 +74,7 @@ public class WaveManager : MonoBehaviour
     {
         ShowCursorAndDisableLook();
         endOfWaveUI.gameObject.SetActive(true);
-        waveNumText.text = "WAVE " + waveNumber;
+        waveNumText.text = "DAY " + waveNumber;
         goldEarnedText.text = goldEarned + "g";
     }
 
@@ -117,7 +117,7 @@ public class WaveManager : MonoBehaviour
 
     public void UpdateWaveNumText()
     {
-        waveNumTextUI.text = "Wave " + waveNumber;
+        waveNumTextUI.text = "Day " + waveNumber;
     }
 
     public void NewWave()
@@ -183,7 +183,7 @@ public class WaveManager : MonoBehaviour
         HideCursorAndEnableLook();
 
 
-        Debug.Log("Wave restarted, values kept: Wave " + waveNumber + ", CustomerNum: " + customerNumber);
+        Debug.Log("Wave restarted, values kept: Day " + waveNumber + ", CustomerNum: " + customerNumber);
         Debug.Log("Restart button pressed");
 
     }
