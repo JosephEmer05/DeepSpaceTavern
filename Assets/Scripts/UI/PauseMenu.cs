@@ -95,7 +95,7 @@ public class PauseMenu : MonoBehaviour
         if (playerLook != null) playerLook.enabled = enable;
     }
 
-    private void SetCursorState(bool locked)
+    public void SetCursorState(bool locked)
     {
         Cursor.lockState = locked ? CursorLockMode.Locked : CursorLockMode.None;
         Cursor.visible = !locked;

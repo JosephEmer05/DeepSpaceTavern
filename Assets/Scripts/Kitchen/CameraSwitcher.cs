@@ -15,6 +15,8 @@ public class CameraSwitcher : MonoBehaviour
     private Coroutine tavernFadeCoroutine;
     private Coroutine kitchenFadeCoroutine;
 
+    public TutorialManager tutorialManager;
+
     void Start()
     {
         SwitchToFPS();
@@ -31,8 +33,10 @@ public class CameraSwitcher : MonoBehaviour
         }
     }
 
-    void SwitchToKitchen()
+    public void SwitchToKitchen()
     {
+        tutorialManager.KitchenTutorial();
+
         kitchenCam.enabled = true;
         fpsCam.enabled = false;
         playerCharacter.SetActive(false);
@@ -49,7 +53,7 @@ public class CameraSwitcher : MonoBehaviour
         kitchenFadeCoroutine = StartCoroutine(FadeAudio(kitchen, 0.5f));
     }
 
-    void SwitchToFPS()
+    public void SwitchToFPS()
     {
         kitchenCam.enabled = false;
         fpsCam.enabled = true;

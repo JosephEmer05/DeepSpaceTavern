@@ -1,13 +1,17 @@
 using UnityEngine;
 using System.Collections;
+using System.Net.Sockets;
 
 public class TutorialManager : MonoBehaviour
 {
     public GameObject movement;
     public bool npcTutorialShown = false;
     public GameObject npc;
+    public bool kitchenTutorialShown = false;
+    public GameObject kitchen;
     public PauseMenu pauseMenu;
     public EnterTavern enterTavern;
+    public CameraSwitcher cameraSwitcher;
 
     private bool coroutineStarted = false;
 
@@ -42,6 +46,16 @@ public class TutorialManager : MonoBehaviour
         }
     }
 
+    public void KitchenTutorial()
+    {
+        if (!kitchenTutorialShown)
+        {
+            Pause();
+            kitchen.SetActive(true);
+            kitchenTutorialShown = true;
+        }
+    }
+
     public void Pause()
     {
         pauseMenu.Pause();
@@ -52,5 +66,14 @@ public class TutorialManager : MonoBehaviour
     {
         pauseMenu.isPaused = false;
         pauseMenu.SetPauseState(false);
+    }
+    public void ResumeKitchen()
+    {
+        pauseMenu.isPaused = false;
+        pauseMenu.SetPauseState(false);
+        cameraSwitcher.SwitchToFPS();
+        cameraSwitcher.SwitchToKitchen();
+        //pauseMenu.SetCursorState(false);
+        //cameraSwitcher.SwitchToKitchen();
     }
 }

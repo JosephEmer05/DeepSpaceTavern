@@ -9435,7 +9435,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1954431732}
         m_TargetAssemblyTypeName: TutorialManager, Assembly-CSharp
-        m_MethodName: Resume
+        m_MethodName: ResumeKitchen
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -31775,6 +31775,7 @@ Transform:
   - {fileID: 1570148271}
   - {fileID: 155712801}
   - {fileID: 1954431731}
+  - {fileID: 845706762}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &615580167
@@ -46786,11 +46787,11 @@ Transform:
   m_GameObject: {fileID: 845706761}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -13.149469, y: 0.8986261, z: -15.751343}
+  m_LocalPosition: {x: 11.716, y: 10.898626, z: -179.75134}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 905450103}
+  m_Father: {fileID: 614032402}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &845706763
 MonoBehaviour:
@@ -46812,6 +46813,7 @@ MonoBehaviour:
   tavern: {fileID: 1441393588}
   kitchen: {fileID: 714662774}
   fadeDuration: 1.5
+  tutorialManager: {fileID: 1954431732}
 --- !u!1 &846091809
 GameObject:
   m_ObjectHideFlags: 0
@@ -50855,7 +50857,6 @@ Transform:
   - {fileID: 1609575146}
   - {fileID: 714662773}
   - {fileID: 1441393587}
-  - {fileID: 845706762}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &905866155
@@ -85745,7 +85746,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1514434531
 RectTransform:
   m_ObjectHideFlags: 0
@@ -107485,8 +107486,11 @@ MonoBehaviour:
   movement: {fileID: 1947115593}
   npcTutorialShown: 0
   npc: {fileID: 349841764}
+  kitchenTutorialShown: 0
+  kitchen: {fileID: 1514434530}
   pauseMenu: {fileID: 155712800}
   enterTavern: {fileID: 1574776210}
+  cameraSwitcher: {fileID: 845706763}
 --- !u!1 &1955768779
 GameObject:
   m_ObjectHideFlags: 0
