@@ -17,6 +17,8 @@ public class CameraSwitcher : MonoBehaviour
 
     public TutorialManager tutorialManager;
 
+    public bool inKitchen = false;
+
     void Start()
     {
         SwitchToFPS();
@@ -35,6 +37,8 @@ public class CameraSwitcher : MonoBehaviour
 
     public void SwitchToKitchen()
     {
+        inKitchen = true;
+
         tutorialManager.KitchenTutorial();
 
         kitchenCam.enabled = true;
@@ -55,6 +59,7 @@ public class CameraSwitcher : MonoBehaviour
 
     public void SwitchToFPS()
     {
+        inKitchen = false;
         kitchenCam.enabled = false;
         fpsCam.enabled = true;
         playerCharacter.SetActive(true);

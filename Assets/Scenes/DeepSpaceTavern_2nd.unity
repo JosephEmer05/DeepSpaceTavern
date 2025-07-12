@@ -7904,6 +7904,7 @@ MonoBehaviour:
   isPaused: 0
   waveManager: {fileID: 28837476}
   npcSpawner: {fileID: 646794122}
+  cameraSwitcher: {fileID: 845706763}
 --- !u!4 &155712801
 Transform:
   m_ObjectHideFlags: 0
@@ -9435,7 +9436,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1954431732}
         m_TargetAssemblyTypeName: TutorialManager, Assembly-CSharp
-        m_MethodName: ResumeKitchen
+        m_MethodName: Resume
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -46814,6 +46815,7 @@ MonoBehaviour:
   kitchen: {fileID: 714662774}
   fadeDuration: 1.5
   tutorialManager: {fileID: 1954431732}
+  inKitchen: 0
 --- !u!1 &846091809
 GameObject:
   m_ObjectHideFlags: 0

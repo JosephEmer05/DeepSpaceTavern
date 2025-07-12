@@ -67,13 +67,4 @@ public class TutorialManager : MonoBehaviour
         pauseMenu.isPaused = false;
         pauseMenu.SetPauseState(false);
     }
-    public void ResumeKitchen()
-    {
-        pauseMenu.isPaused = false;
-        pauseMenu.SetPauseState(false);
-        cameraSwitcher.SwitchToFPS();
-        cameraSwitcher.SwitchToKitchen();
-        //pauseMenu.SetCursorState(false);
-        //cameraSwitcher.SwitchToKitchen();
-    }
 }

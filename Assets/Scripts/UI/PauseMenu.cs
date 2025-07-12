@@ -22,6 +22,7 @@ public class PauseMenu : MonoBehaviour
 
     public WaveManager waveManager;
     public NPC_Spawner npcSpawner;
+    public CameraSwitcher cameraSwitcher;
 
 
     void Start()
@@ -97,8 +98,16 @@ public class PauseMenu : MonoBehaviour
 
     public void SetCursorState(bool locked)
     {
-        Cursor.lockState = locked ? CursorLockMode.Locked : CursorLockMode.None;
-        Cursor.visible = !locked;
+        if (cameraSwitcher.inKitchen)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+        else
+        {
+            Cursor.lockState = locked ? CursorLockMode.Locked : CursorLockMode.None;
+            Cursor.visible = !locked;
+        }
     }
 
     private void ShowCrosshair(bool show)
