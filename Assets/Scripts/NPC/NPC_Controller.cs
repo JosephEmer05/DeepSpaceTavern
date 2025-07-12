@@ -374,6 +374,8 @@ public class NPC_Controller : MonoBehaviour
         player.Poof();
         poofEffect.enabled = true;
 
+        waveManager.UpdateCustomerServed();
+
         yield return new WaitForSeconds(5f);
         Destroy(gameObject);
 

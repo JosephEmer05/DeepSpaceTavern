@@ -9,8 +9,8 @@ public class WaveManager : MonoBehaviour
 {
     public static int waveNumber = 1;
     public int customerNumber = 10;
-    public int customerLeft;
-    public float lineWaitTime = 120f;
+    public int customerServed;
+    public int initialCustomers;
     public float NPCSeatedWaitTime = 120f;
     public float comboMealChance = 3;
 
@@ -33,10 +33,11 @@ public class WaveManager : MonoBehaviour
     ShopManager shopManager;
     NPC_Spawner nPC_Spawner;
     ChairManager chairManager;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        customerLeft = customerNumber;
+        initialCustomers = customerNumber;
         endOfWaveUI.gameObject.SetActive(false);
         enterTavern = UnityEngine.Object.FindAnyObjectByType<EnterTavern>();
         shopManager = UnityEngine.Object.FindAnyObjectByType<ShopManager>();
@@ -53,21 +54,16 @@ public class WaveManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (enterTavern.enteredTavern)
-        {
-            UpdateCustomerLeft();
-        }
-        
-        if (customerLeft <= 0)
+        if (customerServed == customerNumber)
         {
             enterTavern.enteredTavern = false;
             WaveDone();
         }
     }
 
-    public void UpdateCustomerLeft()
+    public void UpdateCustomerServed()
     {
-        customerLeft = GameObject.FindGameObjectsWithTag("NPC").Length;
+        customerServed++;
     }
 
     public void WaveDone()
@@ -125,7 +121,7 @@ public class WaveManager : MonoBehaviour
         waveNumber++;
         goldEarned = 0;
         customerNumber += 4;
-        customerLeft = customerNumber;
+        initialCustomers = customerNumber;
         if (waveNumber <= 2)
         {
             comboMealChance = 0;
@@ -170,7 +166,7 @@ public class WaveManager : MonoBehaviour
         goldOwned -= goldEarned;
         goldEarned = 0;
         goldOwnedTextUI.text = goldOwned + "g";
-        customerLeft = customerNumber;
+        customerNumber = initialCustomers;
 
         if (nPC_Spawner != null)
         {
@@ -185,7 +181,6 @@ public class WaveManager : MonoBehaviour
 
         Debug.Log("Wave restarted, values kept: Day " + waveNumber + ", CustomerNum: " + customerNumber);
         Debug.Log("Restart button pressed");
-
     }
 
 
