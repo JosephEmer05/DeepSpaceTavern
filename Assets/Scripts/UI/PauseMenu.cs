@@ -18,7 +18,7 @@ public class PauseMenu : MonoBehaviour
     private PlayerLook playerLook;
     private PlayerMovement playerMovement;
 
-    private bool isPaused = false;
+    public bool isPaused = false;
 
     public WaveManager waveManager;
     public NPC_Spawner npcSpawner;
@@ -74,7 +74,7 @@ public class PauseMenu : MonoBehaviour
         SetPauseState(true);
     }
 
-    private void SetPauseState(bool pause)
+    public void SetPauseState(bool pause)
     {
         Time.timeScale = pause ? 0f : 1f;
         SetPauseUI(pause);

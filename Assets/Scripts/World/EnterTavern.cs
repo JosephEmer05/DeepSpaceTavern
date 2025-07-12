@@ -4,6 +4,8 @@ public class EnterTavern : MonoBehaviour
 {
     public bool enteredTavern = false;
     public Animator anim;
+
+    TutorialManager tutorialManager;
     private void OnTriggerEnter(Collider other)
     {
         anim.SetTrigger("OpenDoor");

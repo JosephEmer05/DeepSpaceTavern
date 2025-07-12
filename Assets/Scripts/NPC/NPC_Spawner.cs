@@ -45,7 +45,7 @@ public class NPC_Spawner : MonoBehaviour
             if (chairManager.CheckAvailableChairToSpawn())
             {
                 // Add another check after delay before instantiating
-                yield return new WaitForSeconds(Random.Range(6f, 7f));
+                yield return new WaitForSeconds(Random.Range(2f, 3f));
 
                 if (!canSpawn)
                 {
