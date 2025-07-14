@@ -4,11 +4,16 @@ using System.Net.Sockets;
 
 public class TutorialManager : MonoBehaviour
 {
+    public static bool movementShown = false;
     public GameObject movement;
-    public bool npcTutorialShown = false;
+    public static bool npcTutorialShown = false;
     public GameObject npc;
-    public bool kitchenTutorialShown = false;
+    public static bool kitchenTutorialShown = false;
     public GameObject kitchen;
+    public static bool serveNPCTutorialShown = false;
+    public GameObject serve;
+    public static bool tutorialDone = false;
+
     public PauseMenu pauseMenu;
     public EnterTavern enterTavern;
     public CameraSwitcher cameraSwitcher;
@@ -17,7 +22,7 @@ public class TutorialManager : MonoBehaviour
 
     void Start()
     {
-        movement.SetActive(true);
+        MovementTutorial();
         Pause();
     }
 
@@ -36,15 +41,34 @@ public class TutorialManager : MonoBehaviour
         NPCTutorial();
     }
 
+    public void MovementTutorial()
+    {
+        if (!movementShown)
+        {
+            Pause();
+            movement.SetActive(true);  
+        }  
+    }
+
+    public void MovementTutorialDone()
+    {
+        movementShown = true;
+    }
+
     public void NPCTutorial()
     {
         if (!npcTutorialShown)
         {
             Pause();
             npc.SetActive(true);
-            npcTutorialShown = true;
         }
     }
+
+    public void NPCTutorialDone()
+    {
+        npcTutorialShown = true;
+    }
+
 
     public void KitchenTutorial()
     {
@@ -52,8 +76,26 @@ public class TutorialManager : MonoBehaviour
         {
             Pause();
             kitchen.SetActive(true);
-            kitchenTutorialShown = true;
         }
+    }
+
+    public void KitchenTutorialDone()
+    {
+        kitchenTutorialShown = true;
+    }
+
+    public void ServeNPCTutorial()
+    {
+        if (!serveNPCTutorialShown)
+        {
+            Pause();
+            serve.SetActive(true);
+        }
+    }
+    public void ServeNPCTutorialDone()
+    {
+        serveNPCTutorialShown = true;
+        tutorialDone = true;
     }
 
     public void Pause()

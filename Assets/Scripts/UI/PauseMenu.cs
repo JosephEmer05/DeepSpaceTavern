@@ -24,7 +24,6 @@ public class PauseMenu : MonoBehaviour
     public NPC_Spawner npcSpawner;
     public CameraSwitcher cameraSwitcher;
 
-
     void Start()
     {
         SetupButtons();

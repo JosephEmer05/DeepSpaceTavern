@@ -26,7 +26,7 @@ public class CameraSwitcher : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.C))
+        if (Input.GetKeyDown(KeyCode.C) && TutorialManager.npcTutorialShown)
         {
             if (kitchenCam.enabled)
                 SwitchToFPS();
@@ -60,14 +60,25 @@ public class CameraSwitcher : MonoBehaviour
     public void SwitchToFPS()
     {
         inKitchen = false;
+
+        if (TutorialManager.tutorialDone)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
+        else if (TutorialManager.kitchenTutorialShown)
+        {
+            tutorialManager.ServeNPCTutorial();
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+
+
         kitchenCam.enabled = false;
         fpsCam.enabled = true;
         playerCharacter.SetActive(true);
         ui.enabled = false;
         Crosshair.SetActive(true);
-
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
 
         if (tavernFadeCoroutine != null) StopCoroutine(tavernFadeCoroutine);
         if (kitchenFadeCoroutine != null) StopCoroutine(kitchenFadeCoroutine);
