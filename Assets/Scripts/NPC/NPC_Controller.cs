@@ -432,6 +432,7 @@ public class NPC_Controller : MonoBehaviour
 
     public void HappyCustomer()
     {
+        emotionCanvas.gameObject.SetActive(true);
         if (emotionImg != null && happyEmotions != null)
         {
             int happySprite = UnityEngine.Random.Range(0, happyEmotions.Length);

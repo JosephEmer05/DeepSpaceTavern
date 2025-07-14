@@ -21,6 +21,7 @@ TagManager:
   - PrepTimeItem
   - NPCPatience
   - PoofEffect
+  - KitchenCam
   layers:
   - Default
   - TransparentFX
