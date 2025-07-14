@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 using UnityEngine.VFX;
 
 public class NPC_Controller : MonoBehaviour
@@ -60,6 +61,11 @@ public class NPC_Controller : MonoBehaviour
     FoodShake foodShake2A;
     FoodShake foodShake2B;
 
+    public GameObject emotionCanvas;
+    public Image emotionImg;
+    public Sprite angryBalloon;
+    public Sprite[] happyEmotions;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -102,9 +108,14 @@ public class NPC_Controller : MonoBehaviour
                 }
                 
                 anim.SetBool("Tantrum", true);
+
+                emotionCanvas.SetActive(true);
+                ChangeImage();
+
                 if (waitingTime <= 0)
                 {
                     anim.SetBool("Tantrum", false);
+                    emotionCanvas.SetActive(false);
                     GetOffChair();
                     food1Slot.SetActive(false);
                     food2Slot.SetActive(false);
@@ -175,6 +186,8 @@ public class NPC_Controller : MonoBehaviour
         transform.position = targetChair.transform.position;
         transform.SetParent(targetChair.transform);
         obstacle.enabled = true;
+
+        emotionCanvas.SetActive(true);
     }
 
     public void OrderFood()
@@ -197,6 +210,7 @@ public class NPC_Controller : MonoBehaviour
         }
 
         anim.SetTrigger("OrderTaken");
+        emotionCanvas.SetActive(false);
         anim.SetBool("Tantrum", false);
         orderTaken = true;
     }
@@ -240,7 +254,8 @@ public class NPC_Controller : MonoBehaviour
                 foodServed= true;
             }           
         }
-        
+
+         HappyCustomer();
     }
 
     private IEnumerator EatFood()
@@ -406,4 +421,29 @@ public class NPC_Controller : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
        
     }
+
+    public void ChangeImage()
+    {
+        if (emotionImg != null && angryBalloon != null)
+        {
+            emotionImg.sprite = angryBalloon;
+        }
+    }
+
+    public void HappyCustomer()
+    {
+        if (emotionImg != null && happyEmotions != null)
+        {
+            int happySprite = UnityEngine.Random.Range(0, happyEmotions.Length);
+            emotionImg.sprite = happyEmotions[happySprite];
+            StartCoroutine(HideEmotionCanvas(1f));
+        }
+    }
+
+    private IEnumerator HideEmotionCanvas(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        emotionCanvas.SetActive(false);
+    }
+
 }
