@@ -26,9 +26,12 @@ public class CameraSwitcher : MonoBehaviour
     public float tvOnDuration = 1.5f;
     public float tvOffDuration = 1f;
 
+    public GameObject tvPivot;
+    public Animator anim;
     void Start()
     {
         SwitchToFPS();
+        anim = tvPivot.GetComponent<Animator>();
     }
 
     void Update()
@@ -39,9 +42,14 @@ public class CameraSwitcher : MonoBehaviour
                 return;
 
             if (kitchenCam.enabled)
-                TriggerSwitchToFPS();
+            {
+                anim.SetTrigger("TVOut");
+
+            }
             else
-                TriggerSwitchToKitchen();
+            {
+                anim.SetTrigger("TVIn");
+            }
         }
     }
 
@@ -128,8 +136,28 @@ public class CameraSwitcher : MonoBehaviour
         audioSource.volume = targetVolume;
     }
 
+    IEnumerator WaitForAnimationAndThenPlay(string triggerName, System.Action switchAction, RawImage transitionImage, float showDuration)
+    {
+        anim.SetTrigger(triggerName);
+
+        yield return null; 
+        AnimatorStateInfo stateInfo = anim.GetCurrentAnimatorStateInfo(0);
+
+        while (!stateInfo.IsName(triggerName))
+        {
+            yield return null;
+            stateInfo = anim.GetCurrentAnimatorStateInfo(0);
+        }
+
+        float animationLength = stateInfo.length;
+        yield return new WaitForSeconds(animationLength);
+
+        yield return StartCoroutine(PlayTransitionAndSwitch(switchAction, transitionImage, showDuration));
+    }
+
     IEnumerator PlayTransitionAndSwitch(System.Action switchAction, RawImage transitionImage, float showDuration)
     {
+
         transitionImage.gameObject.SetActive(true);
         yield return new WaitForSeconds(showDuration);
 
