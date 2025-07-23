@@ -10,6 +10,7 @@ public class CameraSwitcher : MonoBehaviour
     public GameObject Crosshair;
     public AudioSource tavern;
     public AudioSource kitchen;
+    public ShopAudio shop;
     public float fadeDuration = 1.5f;
 
     private Coroutine tavernFadeCoroutine;
@@ -28,12 +29,16 @@ public class CameraSwitcher : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.C) && TutorialManager.npcTutorialShown)
         {
+            if (shop != null && shop.playerInShop)
+                return;
+
             if (kitchenCam.enabled)
                 SwitchToFPS();
             else
                 SwitchToKitchen();
         }
     }
+
 
     public void SwitchToKitchen()
     {
@@ -80,7 +85,12 @@ public class CameraSwitcher : MonoBehaviour
         ui.enabled = false;
         Crosshair.SetActive(true);
 
-        if (tavernFadeCoroutine != null) StopCoroutine(tavernFadeCoroutine);
+        if (!FindAnyObjectByType<ShopAudio>().playerInShop)
+        {
+            if (tavernFadeCoroutine != null) StopCoroutine(tavernFadeCoroutine);
+            tavernFadeCoroutine = StartCoroutine(FadeAudio(tavern, inKitchen ? 0f : 0.5f));
+        }
+
         if (kitchenFadeCoroutine != null) StopCoroutine(kitchenFadeCoroutine);
 
         tavernFadeCoroutine = StartCoroutine(FadeAudio(tavern, 0.5f));
