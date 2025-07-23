@@ -147,6 +147,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: f4c7312231512274ba21f568d25ab443, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: b5a0ec03b2ac08c4ea885630ee00c69b, type: 2}
     - target: {fileID: 919132149155446097, guid: f4c7312231512274ba21f568d25ab443, type: 3}
       propertyPath: m_Name
       value: Lambchops (1)
