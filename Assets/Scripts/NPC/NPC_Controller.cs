@@ -393,7 +393,6 @@ public class NPC_Controller : MonoBehaviour
 
         yield return new WaitForSeconds(5f);
         Destroy(gameObject);
-
     }
 
     public void NPCPatienceBoost()

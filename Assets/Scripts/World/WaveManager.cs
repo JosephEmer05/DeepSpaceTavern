@@ -69,6 +69,7 @@ public class WaveManager : MonoBehaviour
     public void WaveDone()
     {
         ShowCursorAndDisableLook();
+        customerServed = 0;
         endOfWaveUI.gameObject.SetActive(true);
         waveNumText.text = "DAY " + waveNumber;
         goldEarnedText.text = goldEarned + "g";
