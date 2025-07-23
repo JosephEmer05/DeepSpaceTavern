@@ -3,7 +3,12 @@ guid: 3ffed0612ed793547847443563136804
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: New Piskel
+    second: {fileID: 2800000, guid: 4d3d6c131ef5c334b817b47991e1b277, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0

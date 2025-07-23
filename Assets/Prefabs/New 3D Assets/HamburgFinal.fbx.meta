@@ -3,7 +3,17 @@ guid: e80f62aa6f94c9443ad4f0bf8c02f96e
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: New Piskel
+    second: {fileID: 2800000, guid: 3cb97c6db1c659e4b944e717055ad095, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: resurrect-64-8x
+    second: {fileID: 2800000, guid: b70ac12c72813954989c99200f729977, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
