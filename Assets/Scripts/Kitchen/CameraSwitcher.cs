@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class CameraSwitcher : MonoBehaviour
 {
@@ -20,6 +21,11 @@ public class CameraSwitcher : MonoBehaviour
 
     public bool inKitchen = false;
 
+    public RawImage tvOn;
+    public RawImage tvOff;
+    public float tvOnDuration = 1.5f;
+    public float tvOffDuration = 1f;
+
     void Start()
     {
         SwitchToFPS();
@@ -33,12 +39,22 @@ public class CameraSwitcher : MonoBehaviour
                 return;
 
             if (kitchenCam.enabled)
-                SwitchToFPS();
+                TriggerSwitchToFPS();
             else
-                SwitchToKitchen();
+                TriggerSwitchToKitchen();
         }
     }
 
+
+    public void TriggerSwitchToKitchen()
+    {
+        StartCoroutine(PlayTransitionAndSwitch(SwitchToKitchen, tvOn, tvOnDuration));
+    }
+
+    public void TriggerSwitchToFPS()
+    {
+        StartCoroutine(PlayTransitionAndSwitch(SwitchToFPS, tvOff, tvOffDuration));
+    }
 
     public void SwitchToKitchen()
     {
@@ -111,4 +127,16 @@ public class CameraSwitcher : MonoBehaviour
 
         audioSource.volume = targetVolume;
     }
+
+    IEnumerator PlayTransitionAndSwitch(System.Action switchAction, RawImage transitionImage, float showDuration)
+    {
+        transitionImage.gameObject.SetActive(true);
+        yield return new WaitForSeconds(showDuration);
+
+        switchAction?.Invoke();
+
+        transitionImage.gameObject.SetActive(false);
+    }
+
+
 }
