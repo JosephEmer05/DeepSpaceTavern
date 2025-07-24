@@ -14,7 +14,7 @@ public class ShopManager : MonoBehaviour
 
     NPC_Spawner nPC_Spawner;
     WaveManager waveManager;
-
+    ShopAudio shopAudio;
 
     public bool startShopTime = false;
     public float shopTimer = 30f;
@@ -23,6 +23,8 @@ public class ShopManager : MonoBehaviour
     {
         nPC_Spawner = UnityEngine.Object.FindAnyObjectByType<NPC_Spawner>();
         waveManager = UnityEngine.Object.FindAnyObjectByType<WaveManager>();
+        shopAudio = UnityEngine.Object.FindAnyObjectByType<ShopAudio>();
+
     }
 
     private void Update()
@@ -80,5 +82,6 @@ public class ShopManager : MonoBehaviour
         shopTimer = 30f;
         nPC_Spawner.ResetSpawner();
         waveManager.UpdateWaveNumText();
+        shopAudio.playerInShop = false;
     }
 }
