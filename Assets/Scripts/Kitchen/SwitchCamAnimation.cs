@@ -14,4 +14,14 @@ public class SwitchCamAnimation : MonoBehaviour
         camSwitcher.TriggerSwitchToFPS();
     }
 
+    public void tvIsAnimating()
+    {
+        camSwitcher.tvAnimStart();
+    }
+
+    public void tvNotAnimating()
+    {
+        camSwitcher.tvAnimEnd();
+    }
+
 }
