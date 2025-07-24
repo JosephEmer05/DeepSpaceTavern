@@ -28,6 +28,7 @@ public class CameraSwitcher : MonoBehaviour
 
     public GameObject tvPivot;
     public Animator anim;
+
     void Start()
     {
         SwitchToFPS();
@@ -41,10 +42,10 @@ public class CameraSwitcher : MonoBehaviour
             if (shop != null && shop.playerInShop)
                 return;
 
+
             if (kitchenCam.enabled)
             {
                 anim.SetTrigger("TVOut");
-
             }
             else
             {
@@ -52,7 +53,6 @@ public class CameraSwitcher : MonoBehaviour
             }
         }
     }
-
 
     public void TriggerSwitchToKitchen()
     {
@@ -165,6 +165,5 @@ public class CameraSwitcher : MonoBehaviour
 
         transitionImage.gameObject.SetActive(false);
     }
-
 
 }

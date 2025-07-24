@@ -13,4 +13,5 @@ public class SwitchCamAnimation : MonoBehaviour
     {
         camSwitcher.TriggerSwitchToFPS();
     }
+
 }
