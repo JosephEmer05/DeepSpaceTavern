@@ -24,6 +24,7 @@ public class PauseMenu : MonoBehaviour
     public NPC_Spawner npcSpawner;
     public CameraSwitcher cameraSwitcher;
 
+    public TutorialManager tutorialManager;
     void Start()
     {
         SetupButtons();
@@ -33,13 +34,17 @@ public class PauseMenu : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (!tutorialManager.inTutorial)
         {
-            if (isPaused)
-                Resume();
-            else
-                Pause();
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                if (isPaused)
+                    Resume();
+                else
+                    Pause();
+            }
         }
+        
     }
 
     private void SetupButtons()

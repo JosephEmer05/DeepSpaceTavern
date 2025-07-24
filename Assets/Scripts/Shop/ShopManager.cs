@@ -82,6 +82,6 @@ public class ShopManager : MonoBehaviour
         shopTimer = 30f;
         nPC_Spawner.ResetSpawner();
         waveManager.UpdateWaveNumText();
-        shopAudio.playerInShop = false;
+        shopAudio.ResetShopAudio();
     }
 }

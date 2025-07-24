@@ -20,6 +20,8 @@ public class TutorialManager : MonoBehaviour
 
     private bool coroutineStarted = false;
 
+    public bool inTutorial = false;
+
     void Start()
     {
         MovementTutorial();
@@ -45,6 +47,7 @@ public class TutorialManager : MonoBehaviour
     {
         if (!movementShown)
         {
+            inTutorial = true;
             Pause();
             movement.SetActive(true);  
         }  
@@ -53,12 +56,14 @@ public class TutorialManager : MonoBehaviour
     public void MovementTutorialDone()
     {
         movementShown = true;
+        inTutorial = false;
     }
 
     public void NPCTutorial()
     {
         if (!npcTutorialShown)
         {
+            inTutorial = true;
             Pause();
             npc.SetActive(true);
         }
@@ -67,6 +72,7 @@ public class TutorialManager : MonoBehaviour
     public void NPCTutorialDone()
     {
         npcTutorialShown = true;
+        inTutorial = false;
     }
 
 
@@ -74,6 +80,7 @@ public class TutorialManager : MonoBehaviour
     {
         if (!kitchenTutorialShown)
         {
+            inTutorial = true;
             Pause();
             kitchen.SetActive(true);
         }
@@ -82,12 +89,14 @@ public class TutorialManager : MonoBehaviour
     public void KitchenTutorialDone()
     {
         kitchenTutorialShown = true;
+        inTutorial = false;
     }
 
     public void ServeNPCTutorial()
     {
         if (!serveNPCTutorialShown)
         {
+            inTutorial = true;
             Pause();
             serve.SetActive(true);
         }
@@ -96,6 +105,7 @@ public class TutorialManager : MonoBehaviour
     {
         serveNPCTutorialShown = true;
         tutorialDone = true;
+        inTutorial = false;
     }
 
     public void Pause()

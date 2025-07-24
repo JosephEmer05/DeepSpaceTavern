@@ -7927,6 +7927,7 @@ MonoBehaviour:
   waveManager: {fileID: 28837476}
   npcSpawner: {fileID: 646794122}
   cameraSwitcher: {fileID: 845706763}
+  tutorialManager: {fileID: 1954431732}
 --- !u!4 &155712801
 Transform:
   m_ObjectHideFlags: 0
@@ -30624,7 +30625,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 500
   m_TargetDisplay: 0
 --- !u!1001 &560550450
 PrefabInstance:
@@ -46470,6 +46471,7 @@ MonoBehaviour:
   shop: {fileID: 816348475}
   fadeSpeed: 1
   playerInShop: 0
+  shopControlsAudio: 0
 --- !u!82 &816348475
 AudioSource:
   m_ObjectHideFlags: 0
@@ -48274,6 +48276,7 @@ MonoBehaviour:
   tvOffDuration: 0.5
   tvPivot: {fileID: 2117407188}
   anim: {fileID: 0}
+  tvIsAnimating: 0
 --- !u!1 &846091809
 GameObject:
   m_ObjectHideFlags: 0
@@ -110882,6 +110885,7 @@ MonoBehaviour:
   pauseMenu: {fileID: 155712800}
   enterTavern: {fileID: 1574776210}
   cameraSwitcher: {fileID: 845706763}
+  inTutorial: 0
 --- !u!1 &1955768779
 GameObject:
   m_ObjectHideFlags: 0

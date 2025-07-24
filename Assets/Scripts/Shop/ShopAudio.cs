@@ -13,6 +13,7 @@ public class ShopAudio : MonoBehaviour
     private float shopTargetVolume;
 
     public bool playerInShop = false;
+    public bool shopControlsAudio = false;
 
     void Start()
     {
@@ -23,19 +24,26 @@ public class ShopAudio : MonoBehaviour
 
     void Update()
     {
+        if (!shopControlsAudio) return;
+
         scifi.volume = Mathf.Lerp(scifi.volume, scifiTargetVolume, Time.deltaTime * fadeSpeed);
         tavern.volume = Mathf.Lerp(tavern.volume, tavernTargetVolume, Time.deltaTime * fadeSpeed);
         shop.volume = Mathf.Lerp(shop.volume, shopTargetVolume, Time.deltaTime * fadeSpeed);
     }
+
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
             playerInShop = true;
+            shopControlsAudio = true;
+
             scifiTargetVolume = 0f;
             tavernTargetVolume = 0f;
             shopTargetVolume = 1f;
+
+            Debug.Log("Player entered shop");
         }
     }
 
@@ -43,11 +51,23 @@ public class ShopAudio : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            playerInShop = false;
-            scifiTargetVolume = 0f;
-            tavernTargetVolume = 0.5f;
-            shopTargetVolume = 0f;
+            ResetShopAudio();
         }
     }
 
+    public void ResetShopAudio()
+    {
+        playerInShop = false;
+        shopControlsAudio = false;
+
+        scifiTargetVolume = 0f;
+        tavernTargetVolume = 0.5f;
+        shopTargetVolume = 0f;
+
+        scifi.volume = scifiTargetVolume;
+        tavern.volume = tavernTargetVolume;
+        shop.volume = shopTargetVolume;
+
+        Debug.Log("Shop audio reset.");
+    }
 }
