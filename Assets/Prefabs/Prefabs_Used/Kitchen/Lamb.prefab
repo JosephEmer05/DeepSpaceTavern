@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 290356735943474885}
   - component: {fileID: 6175995780261505892}
   - component: {fileID: 3036415558744496823}
+  - component: {fileID: -153039133674288629}
   - component: {fileID: 5888031606748688367}
   - component: {fileID: 8111448713886913}
   - component: {fileID: 1666203848072310724}
@@ -33,7 +34,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_LocalScale: {x: 1.6718, y: 1.6718, z: 1.6718}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -120,6 +121,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &-153039133674288629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 12858805555732188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e8466a538f6dd94f90773f3fab66c77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ingredientName: Lamb
 --- !u!65 &5888031606748688367
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -139,8 +153,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.25, y: 0.9, z: 2.59007}
-  m_Center: {x: 0, y: 0, z: -1.1950349}
+  m_Size: {x: 1.25, y: 0.9, z: 5.5083804}
+  m_Center: {x: 0, y: 0, z: 0.26412034}
 --- !u!114 &8111448713886913
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 171393996313564648}
   - component: {fileID: -7552000499686889698}
   - component: {fileID: -3237164680619801946}
+  - component: {fileID: -7243931255670371460}
   - component: {fileID: 3517273876141973764}
   m_Layer: 0
   m_Name: Cheese
@@ -30,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_LocalScale: {x: 1.19, y: 1.19, z: 1.19}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -78,7 +79,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_Sprite: {fileID: 968093199, guid: 40364cfc473c0bc4a8fcbebf32a6e212, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -129,6 +130,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &-7243931255670371460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8159827528062716873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e8466a538f6dd94f90773f3fab66c77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ingredientName: Cheese
 --- !u!65 &3517273876141973764
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -148,5 +162,5 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.02, y: 0.5, z: 2.412055}
-  m_Center: {x: 0, y: 0, z: -1.1060274}
+  m_Size: {x: 1.02, y: 0.5, z: 5.3241014}
+  m_Center: {x: 0, y: 0, z: 0.3499956}
