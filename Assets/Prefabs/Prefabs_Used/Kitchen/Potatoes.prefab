@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2720464619216678515}
   - component: {fileID: 8021810305393574372}
   - component: {fileID: 81236410388423796}
+  - component: {fileID: 5434208681100957320}
   - component: {fileID: 8606962069173462017}
   m_Layer: 0
   m_Name: Potatoes
@@ -30,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 3.29, y: 0.27, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -109,8 +110,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.02, y: 0.5, z: 2.412055}
-  m_Center: {x: 0, y: 0, z: -1.1060274}
+  m_Size: {x: 1.02, y: 0.81760263, z: 5.5249314}
+  m_Center: {x: 0, y: 0.00000023841858, z: 0.4504106}
 --- !u!54 &81236410388423796
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -138,6 +139,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &5434208681100957320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4917237707725447068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e8466a538f6dd94f90773f3fab66c77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ingredientName: Potatoes
 --- !u!114 &8606962069173462017
 MonoBehaviour:
   m_ObjectHideFlags: 0

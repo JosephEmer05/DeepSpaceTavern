@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8021810305393574372}
   - component: {fileID: 81236410388423796}
   - component: {fileID: 8606962069173462017}
+  - component: {fileID: -4262927472283476475}
   m_Layer: 0
   m_Name: Carrots
   m_TagString: Ingredient
@@ -30,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 3.29, y: 0.27, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_LocalScale: {x: 1.17, y: 1.17, z: 1.17}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -109,8 +110,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.02, y: 0.5, z: 2.412055}
-  m_Center: {x: 0, y: 0, z: -1.1060274}
+  m_Size: {x: 1.02, y: 0.5, z: 5.5249276}
+  m_Center: {x: 0, y: 0, z: 0.45040917}
 --- !u!54 &81236410388423796
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -150,3 +151,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c3955187b96aba42b915f197c07bc48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-4262927472283476475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4917237707725447068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e8466a538f6dd94f90773f3fab66c77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ingredientName: Carrots
