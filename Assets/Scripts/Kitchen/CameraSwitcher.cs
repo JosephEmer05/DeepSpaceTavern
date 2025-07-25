@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using TMPro;
 
 public class CameraSwitcher : MonoBehaviour
 {
@@ -30,6 +31,13 @@ public class CameraSwitcher : MonoBehaviour
     public Animator anim;
 
     public bool tvIsAnimating = false;
+
+    public TextMeshProUGUI cText;
+    public Image EOrR;
+    public Sprite eKey;
+    public Sprite rKey;
+    public TextMeshProUGUI EOrRText;
+
 
     void Start()
     {
@@ -82,6 +90,9 @@ public class CameraSwitcher : MonoBehaviour
     public void SwitchToKitchen()
     {
         inKitchen = true;
+        cText.text = "Go to Restaurant";
+        EOrR.sprite = rKey;
+        EOrRText.text = "Recipe";
 
         tutorialManager.KitchenTutorial();
 
@@ -104,6 +115,9 @@ public class CameraSwitcher : MonoBehaviour
     public void SwitchToFPS()
     {
         inKitchen = false;
+        cText.text = "Go to Kitchen";
+        EOrR.sprite = eKey;
+        EOrRText.text = "Interact";
 
         if (TutorialManager.tutorialDone)
         {

@@ -22,10 +22,13 @@ public class TutorialManager : MonoBehaviour
 
     public bool inTutorial = false;
 
+    public GameObject controlsPrompt;
+
     void Start()
     {
         MovementTutorial();
         Pause();
+        controlsPrompt.SetActive(false);
     }
 
     void Update()
@@ -73,6 +76,7 @@ public class TutorialManager : MonoBehaviour
     {
         npcTutorialShown = true;
         inTutorial = false;
+        controlsPrompt.SetActive(true);
     }
 
 

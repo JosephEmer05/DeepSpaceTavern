@@ -23,6 +23,7 @@ public class PauseMenu : MonoBehaviour
     public WaveManager waveManager;
     public NPC_Spawner npcSpawner;
     public CameraSwitcher cameraSwitcher;
+    public Recipe recipe;
 
     public TutorialManager tutorialManager;
     void Start()
@@ -34,7 +35,7 @@ public class PauseMenu : MonoBehaviour
 
     void Update()
     {
-        if (!tutorialManager.inTutorial)
+        if (!tutorialManager.inTutorial && !recipe.recipeOpen)
         {
             if (Input.GetKeyDown(KeyCode.Escape))
             {
