@@ -120,7 +120,7 @@ public class PlayerInteract : MonoBehaviour
 
     public void GrabFood(FoodStatus food)
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetKeyDown(KeyCode.E))
         {
             GameObject traySlot = trayManager.CheckTraySlot();
             if (traySlot != null)
@@ -137,7 +137,7 @@ public class PlayerInteract : MonoBehaviour
 
     public void ServeFood(string foodTag, GameObject tableSlot)
     {
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetKeyDown(KeyCode.E))
         {
             GameObject foodToTable = trayManager.CheckTrayFood(foodTag);
             
