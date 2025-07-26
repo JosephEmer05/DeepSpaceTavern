@@ -14,6 +14,8 @@ public class PlayerInteract : MonoBehaviour
     public PlateStacker plateStacker;
     public WaveManager waveManager;
     public FoodValueManager foodValueManager;
+
+    public GameObject makeFoodPrompt;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -143,6 +145,7 @@ public class PlayerInteract : MonoBehaviour
             
             if (foodToTable == null)
             {
+
                 Transform NPCParent = tableSlot.transform;
                 while (NPCParent != null)
                 {

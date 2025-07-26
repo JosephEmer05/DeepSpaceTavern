@@ -39,6 +39,14 @@ public class Soup : MonoBehaviour
                 Destroy(other.gameObject);
             }
         }
+        if (soupFill>=2)
+        {
+            if (ingredientName.Contains("Bowl"))
+            {
+                ServeSoup();
+                Destroy(other.gameObject);
+            }
+        }
     }
 
     void UpdateSoupSprite()

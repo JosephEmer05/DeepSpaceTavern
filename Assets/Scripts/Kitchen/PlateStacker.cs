@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Collections;
+using DG.Tweening;
 
 public class PlateStacker : MonoBehaviour
 {
@@ -22,6 +23,7 @@ public class PlateStacker : MonoBehaviour
     public GameObject lambPrefab;
     public GameObject stewPrefab;
     public GameObject beerPrefab;
+    public GameObject bell;
 
     public GameObject[] spawnPoints;
     public List<GameObject> spawnedDishes = new List<GameObject>();
@@ -42,9 +44,12 @@ public class PlateStacker : MonoBehaviour
     private ShopItem shopManager;
 
     public AudioPlayer player;
+
+    public Animator anim;
     private void Start()
     {
         shopManager = counterShop.GetComponent<ShopItem>();
+        anim = bell.GetComponent<Animator>();
     }
     private void Update()
     {
@@ -52,6 +57,11 @@ public class PlateStacker : MonoBehaviour
         for (int i = 0; i < numSlots; i++)
         {
             spawnPoints[i].SetActive(true);
+        }
+
+        if (stackedIngredients.Count > 0)
+        {
+            BellShake();
         }
     }
 
@@ -357,5 +367,10 @@ public class PlateStacker : MonoBehaviour
             Destroy(ingredient.gameObject);
         }
         stackedIngredients.Clear();
+    }
+
+    public void BellShake()
+    {
+        anim.SetTrigger("BellShake");
     }
 }

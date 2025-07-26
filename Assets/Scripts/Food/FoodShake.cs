@@ -19,7 +19,4 @@ public class FoodShake : MonoBehaviour
            .Join(obj.transform.DOScaleY(initialSize.y, 0.5f).SetEase(Ease.OutElastic, 3f, 0.25f))
            .OnComplete(() => isAnimating = false);
     }
-    
-    
-
 }
