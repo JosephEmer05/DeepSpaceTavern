@@ -114,13 +114,12 @@ public class NPC_Controller : MonoBehaviour
 
                 if (waitingTime <= 0)
                 {
+                    loseLife = true;
                     anim.SetBool("Tantrum", false);
                     emotionCanvas.SetActive(false);
                     GetOffChair();
                     food1Slot.SetActive(false);
                     food2Slot.SetActive(false);
-                    loseLife = true;
-                    LeaveTavern();
                 }
             }
             
@@ -141,10 +140,10 @@ public class NPC_Controller : MonoBehaviour
             StartCoroutine(EatFood());
         }
 
-        if (isLeaving)
-        {
-            LeaveTavern();
-        }
+        //if (isLeaving)
+        //{
+        //    LeaveTavern();
+        //}
     }
 
     public void FindSeat()
@@ -353,8 +352,7 @@ public class NPC_Controller : MonoBehaviour
             isSeated = false;
             isWalkingToChair = false;
         }
-        //waveManager.UpdateCustomerLeft();
-        //Debug.Log("Stood Up");
+        LeaveTavern();
     }
 
     public void LeaveTavern()
@@ -373,7 +371,7 @@ public class NPC_Controller : MonoBehaviour
     public IEnumerator Poof()
     {
         poof = true;
-        //yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(5f);
         
         if (loseLife && !lostLife)
         {

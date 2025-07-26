@@ -55455,7 +55455,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &909025419
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61566,6 +61566,7 @@ GameObject:
   - component: {fileID: 1006436973}
   - component: {fileID: 1006436975}
   - component: {fileID: 1006436974}
+  - component: {fileID: 1006436976}
   m_Layer: 5
   m_Name: MakeFoodText
   m_TagString: Untagged
@@ -61612,7 +61613,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: I have to cook that in the kitchen...
+  m_text: 'I have to cook that in the kitchen...
+
+    Press C'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -61621,8 +61624,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 16777215
+  m_fontColor: {r: 1, g: 1, b: 1, a: 0}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -61691,6 +61694,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1006436972}
   m_CullTransparentMesh: 1
+--- !u!95 &1006436976
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1006436972}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ef620a553483a29458ab86aa73f75fe4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!4 &1006827972 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 6234cdc475f18c9408664ce2d902fd55, type: 3}
@@ -80052,7 +80077,8 @@ MonoBehaviour:
   plateStacker: {fileID: 0}
   waveManager: {fileID: 0}
   foodValueManager: {fileID: 0}
-  makeFoodPrompt: {fileID: 0}
+  makeFoodPrompt: {fileID: 1006436972}
+  anim: {fileID: 0}
 --- !u!114 &1284302746
 MonoBehaviour:
   m_ObjectHideFlags: 0

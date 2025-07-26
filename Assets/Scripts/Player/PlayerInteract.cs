@@ -1,3 +1,4 @@
+using TMPro;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
@@ -16,6 +17,7 @@ public class PlayerInteract : MonoBehaviour
     public FoodValueManager foodValueManager;
 
     public GameObject makeFoodPrompt;
+    public Animator anim;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -25,6 +27,7 @@ public class PlayerInteract : MonoBehaviour
         plateStacker = UnityEngine.Object.FindAnyObjectByType<PlateStacker>();
         waveManager = UnityEngine.Object.FindAnyObjectByType<WaveManager>();
         foodValueManager = UnityEngine.Object.FindAnyObjectByType<FoodValueManager>();
+        anim = makeFoodPrompt.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -145,7 +148,7 @@ public class PlayerInteract : MonoBehaviour
             
             if (foodToTable == null)
             {
-
+                anim.SetTrigger("ShowPrompt");
                 Transform NPCParent = tableSlot.transform;
                 while (NPCParent != null)
                 {
