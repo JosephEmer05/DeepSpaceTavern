@@ -373,7 +373,7 @@ public class NPC_Controller : MonoBehaviour
     public IEnumerator Poof()
     {
         poof = true;
-        yield return new WaitForSeconds(5f);
+        //yield return new WaitForSeconds(5f);
         
         if (loseLife && !lostLife)
         {

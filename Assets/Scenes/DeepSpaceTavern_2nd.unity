@@ -1467,7 +1467,7 @@ MonoBehaviour:
   customerNumber: 5
   customerServed: 0
   initialCustomers: 0
-  NPCSeatedWaitTime: 150
+  NPCSeatedWaitTime: 180
   comboMealChance: 3
   goldOwned: 0
   goldEarned: 0

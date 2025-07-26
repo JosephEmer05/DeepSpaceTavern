@@ -4,15 +4,15 @@ using System.Net.Sockets;
 
 public class TutorialManager : MonoBehaviour
 {
-    public static bool movementShown = false;
+    public bool movementShown = false;
     public GameObject movement;
-    public static bool npcTutorialShown = false;
+    public bool npcTutorialShown = false;
     public GameObject npc;
-    public static bool kitchenTutorialShown = false;
+    public bool kitchenTutorialShown = false;
     public GameObject kitchen;
-    public static bool serveNPCTutorialShown = false;
+    public bool serveNPCTutorialShown = false;
     public GameObject serve;
-    public static bool tutorialDone = false;
+    public bool tutorialDone = false;
 
     public PauseMenu pauseMenu;
     public EnterTavern enterTavern;

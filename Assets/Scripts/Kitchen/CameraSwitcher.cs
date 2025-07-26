@@ -49,7 +49,7 @@ public class CameraSwitcher : MonoBehaviour
     {
         if (!tvIsAnimating)
         {
-            if (Input.GetKeyDown(KeyCode.C) && TutorialManager.npcTutorialShown)
+            if (Input.GetKeyDown(KeyCode.C) && tutorialManager.npcTutorialShown)
             {
                 if (shop != null && shop.playerInShop)
                     return;
@@ -119,12 +119,12 @@ public class CameraSwitcher : MonoBehaviour
         EOrR.sprite = eKey;
         EOrRText.text = "Interact";
 
-        if (TutorialManager.tutorialDone)
+        if (tutorialManager.tutorialDone)
         {
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
         }
-        else if (TutorialManager.kitchenTutorialShown)
+        else if (tutorialManager.kitchenTutorialShown)
         {
             tutorialManager.ServeNPCTutorial();
             Cursor.lockState = CursorLockMode.None;
@@ -186,7 +186,6 @@ public class CameraSwitcher : MonoBehaviour
 
     IEnumerator PlayTransitionAndSwitch(System.Action switchAction, RawImage transitionImage, float showDuration)
     {
-
         transitionImage.gameObject.SetActive(true);
         yield return new WaitForSeconds(showDuration);
 
