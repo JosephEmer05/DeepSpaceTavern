@@ -360,7 +360,7 @@ public class NPC_Controller : MonoBehaviour
         obstacle.enabled = false;
         agent.enabled = true;
         agent.SetDestination(exitPoint.transform.position);
-        GetComponent<Collider>().enabled = false; 
+        //GetComponent<Collider>().enabled = false; 
         if (!poof)
         {
             StartCoroutine(Poof());
